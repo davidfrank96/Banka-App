@@ -293,7 +293,6 @@ header {
 }
 
 footer {
-  background-color: #000;
   color: #fff;
   text-align: center;
   padding: 10px 0;
@@ -307,7 +306,7 @@ footer {
 .form_page {
   padding: 50px 0;
   overflow: scroll;
-  background-image: url("../images/page-banner.jpg");
+  background-image: url("../images/atm.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.7);
