@@ -1,6 +1,7 @@
 const overlay = document.querySelector('.overlay');
 const mobileMenu = document.querySelector('.mobile-menu');
 
+
 const redirect = location => {
     window.location.href = `${location}.html`;
 };
@@ -26,4 +27,3 @@ overlay.addEventListener("click", () => {
 });
 
 mobileMenu.addEventListener("click", toggleMobileNav);
-
