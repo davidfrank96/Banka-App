@@ -89,6 +89,7 @@ header {
 .main-nav {
   display: flex;
   flex-wrap: wrap;
+ 
 }
 
 .main-nav__list {
@@ -99,7 +100,7 @@ header {
 .mobile-nav__list {
   list-style: none;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom:0;
   padding: 0;
 }
 
@@ -293,9 +294,10 @@ header {
 }
 
 footer {
-  color: #fff;
+  color: whitesmoke;
   text-align: center;
   padding: 10px 0;
+  background-color: #000;
 }
 
 /* Login & Signup Page */
@@ -456,7 +458,7 @@ footer {
 
 /* Order Table */
 .table {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .table-head,
@@ -492,12 +494,12 @@ footer {
 .table-row__list-item,
 .table-foot__list-item {
   display: inline-flex;
-  margin: 0 20px;
+  margin: 0 40px;
   min-width: 80px;
 }
 
 .table-head__list-item:nth-child(3) {
-  width: 150px;
+  width: 200px;
 }
 
 .table-head__list-item:last-child,
@@ -517,7 +519,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between;
   border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+  padding: 12px 0;
   width: 200px;
 }
 
