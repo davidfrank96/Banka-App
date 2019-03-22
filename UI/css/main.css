@@ -2,6 +2,7 @@
 :root {
   --red: 	#8abdae;
   --nunito: "Nunito", sans-serif;
+  --gold: #C5B358;
 }
 
 /* General Styles & Classes*/
@@ -48,6 +49,9 @@ button {
   color: var(--red);
 }
 
+.gold{
+  color: var(--gold)
+}
 .page-section {
   margin: 80px 60px;
 }
@@ -69,6 +73,17 @@ header {
   padding: 30px;
   color: #fff;
   background-image: url("../images/atm.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+  background-position: 10% 65%;
+}
+
+.admin{
+   padding: 30px;
+  color: #fff;
+  background-image: url("../images/Banking.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.7);
@@ -307,7 +322,7 @@ footer {
 
 .form_page {
   padding: 50px 0;
-  background-image: url("../images/atm.jpg");
+  background-image: url("../images/bank.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.7);
