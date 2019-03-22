@@ -34,6 +34,28 @@ button {
   cursor: pointer;
 }
 
+.delete{
+  padding: 0.8rem;
+  border: none;
+  outline: none;
+  background-color: rgb(207, 57, 57);
+  color: #fff;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.deactive{
+ padding: 0.8rem;
+  border: none;
+  outline: none;
+  background-color: #ffbf00;
+  color: #fff;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer; 
+}
+
 .btn {
   padding: 0.8rem;
   border: none;
@@ -519,7 +541,7 @@ select.form-field{
 .table-foot__list-item {
   display: inline-flex;
   margin: 0 40px;
-  min-width: 80px;
+  min-width: 60px;
 }
 
 .table-head__list-item:nth-child(3) {
