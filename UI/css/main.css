@@ -197,6 +197,17 @@ header {
   background-position: 10% 65%;
 }
 
+.account{
+   padding: 30px;
+  color: #fff;
+  background-image: url("../images/bank.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+  background-position: 10% 65%;
+}
+
 .logo {
   font-size: 2rem;
   font-weight: bold;
@@ -434,6 +445,15 @@ footer {
   background-color: rgba(0, 0, 0, 0.7);
   background-blend-mode: multiply;
   background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.form_admin {
+  padding: 50px 0;
+  
   display: flex;
   align-items: center;
   justify-content: center;
