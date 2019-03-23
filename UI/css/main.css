@@ -3,6 +3,7 @@
   --red: 	#8abdae;
   --nunito: "Nunito", sans-serif;
   --gold: #C5B358;
+  --coin: #D3D3D3;
 }
 
 /* General Styles & Classes*/
@@ -151,10 +152,13 @@ transition: 0.4s;
 background: #C5B358;
 }
 
+/*Colors*/
 .red {
   color: var(--red);
 }
-
+.coin {
+   color: var(--coin);
+}
 .gold{
   color: var(--gold)
 }
@@ -201,6 +205,17 @@ header {
    padding: 30px;
   color: #fff;
   background-image: url("../images/bank.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+  background-position: 10% 65%;
+}
+
+.staff{
+   padding: 30px;
+  color: #fff;
+  background-image: url("../images/coin.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.7);
