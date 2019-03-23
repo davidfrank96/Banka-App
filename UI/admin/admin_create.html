@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Banka -Admin Create</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <header>
+        <div class="overlay hide"></div>
+
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="red">BANKA</span> <span class="gold">Create</span>
+                </a>
+            </div>
+            <ul class="main-nav__list">
+
+                <li class="main-nav__list-item">
+                    <a href="#"><b>Create</b></a>
+                </li>
+                <li class="main-nav__list-item">
+                    <a href="../admin/admin_dashboard.html">Home</a>
+                </li>
+                <li class="main-nav__list-item">
+                    <a href="../index.html">Logout</a>
+                </li>
+            </ul>
+            <div class="burger burger-slip mobile-menu">
+                <div class="burger-lines"></div>
+            </div>
+        </nav>
+        <nav class="mobile-nav hide">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="red">Banka</span> <span class="gold">Create</span>
+                </a>
+            </div>
+            <ul class="mobile-nav__list">
+                <li class="main-nav__list-item">
+                    <a href="#"><b>Create</b></a>
+                </li>
+                <li class="main-nav__list-item">
+                    <a href="../admin/admin_dashboard.html">Home</a>
+                </li>
+                <li class="main-nav__list-item">
+                    <a href="../index.html">Logout</a>
+                </li>
+            </ul>
+        </nav>
+       
+    </header>
+    <body>
+        
+            <section class="form_admin">
+                <form action="#" method="post" class="page_form" id="registerForm">
+                    <h3>
+                        Banka <span class="red">Create Account</span></h3><b>Admin/Staff</b>
+                    
+                    <div class="form-account">
+                        <input type="text" name="name" class="form-field" placeholder="First Name" required>
+                        <input type="text" name="name" class="form-field" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-field" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-field" placeholder="Your Email" required>
+                    </div>
+                    <!-- <div class="form-group">
+                        <input type="tel" name="phone" class="form-field" placeholder="Your Phone Number" required>
+                    </div> -->
+                    <div class="form-group">
+                        <select type="text" name="Role" class="form-field" placeholder=" Choose a Role" required>
+                            <option type="text" name="Role" class="form-field" placeholder=" Choose a Role" value="">Select
+                                a Role</option>
+                            <option type="text" name="Admin" class="form-field" placeholder=" Choose a Role" value="">Admin</option>
+                            <option type="text" name="Staff" class="form-field" placeholder=" Choose a Role" value="">Staff</option>
+                    
+                        </select>
+                    </div>
+                    <div class="form-account">
+                        <input type="password" name="password" class="form-field" placeholder="Your Password" required>
+                        <input type="password" name="confirm_password" class="form-field" placeholder="Confirm Password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <p class="page_link"><input type="checkbox" name="checkbox" value="check" id="agree" required /> I
+                            have read and agree to the Terms and Conditions
+                            and Privacy Policy </p>
+                    </div>
+                    <button type="submit">Create</button>
+                    <p class="page_link">Back to Home? <a href="admin_dashboard.html">Click Here</a></p>
+                </form>
+            </section>
+        
+    
+        <script src="js/app.js"></script>
+    </body>
+    <footer>
+        <p>&copy; 2019 Copyright. <span class="red">Banka</span>.</p>
+    </footer>
+    
+    <script src="../js/app.js"></script>
+    
+    </body>
+    
+    </html>

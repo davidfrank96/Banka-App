@@ -11,12 +11,16 @@
 </head>
 
 <body>
-    <main class="form_wrapper">
+    
         <section class="form_page">
             <form action="#" method="post" class="page_form" id="registerForm">
                 <h3>
                      Banka <span class="red">Register</span></h3>
                 
+                <div class="form-account">
+                        <input type="text" name="name" class="form-field" placeholder="First Name" required>
+                        <input type="text" name="name" class="form-field" placeholder="Last Name" required>
+                </div>
                 <div class="form-group">
                     <input type="text" name="name" class="form-field" placeholder="Username" required>
                 </div>
@@ -25,7 +29,7 @@
                 </div>
                <!-- <div class="form-group">
                     <input type="tel" name="phone" class="form-field" placeholder="Your Phone Number" required>
-                </div> -->
+                </div> 
                 <div class="form-group">
                     <select type="text" name="Role" class="form-field" placeholder=" Choose a Role" required>
                         <option type="text" name="Role" class="form-field" placeholder=" Choose a Role" value="">Select a Role</option>
@@ -33,7 +37,7 @@
                         <option type="text" name="Role" class="form-field" placeholder=" Choose a Role" value="">Staff</option>
                         <option type="text" name="Role" class="form-field" placeholder=" Choose a Role" value="">Admin</option>
                     </select>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <input type="password" name="password" class="form-field" placeholder="Your Password" required>
                 </div>
@@ -50,7 +54,9 @@
                 <p class="page_link">Back to Home? <a href="index.html">Click Here</a></p>
             </form>
         </section>
-    </main>
+    <footer>
+        <p>&copy; 2019 Copyright. <span class="red">Banka</span>.</p>
+    </footer>
     
     <script src="js/app.js"></script>
 </body>
