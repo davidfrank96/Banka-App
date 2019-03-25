@@ -1,0 +1,54 @@
+{
+  "name": "banka-app",
+  "version": "1.0.0",
+  "description": "Banka is a light-weight core banking application that powers banking operations like account",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node ./server/dist/src/app.js",
+    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node -- ./server/src/app.js",
+    "build": "npm run clean && babel ./server -d ./server/dist",
+    "clean": "rm -rf server/dist",
+    "test": "cross-env NODE_ENV=test mocha ./server/test/ --require babel-register --recursive --timeout 50000 --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidfrank96/Banka-App.git"
+  },
+  "author": "Frank David Frank",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "bcrypt": "^3.0.5",
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.3",
+    "cross-env": "^5.2.0",
+    "dotenv": "^7.0.0",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "istanbul": "^0.4.5",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^6.0.2",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10",
+    "random-string": "^0.2.0",
+    "sinon": "^7.3.0",
+    "supertest": "^4.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/davidfrank96/Banka-App/issues"
+  },
+  "homepage": "https://github.com/davidfrank96/Banka-App#readme"
+}
