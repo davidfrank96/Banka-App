@@ -33,4 +33,18 @@ export default {
             .isLength({ min: 6 })
             .withMessage('Password must be minimum of 6 characters'),
     ],
+    login: [
+        check('email')
+            .trim()
+            .exists()
+            .withMessage('Email must be specific')
+            .custom(value => notEmpty(value, 'email field cannot be left blank'))
+            .isEmail()
+            .withMessage('Please input a valid email address'),
+        check('password')
+            .trim()
+            .exists().withMessage('Password field is required')
+            .isLength({ min: 6 })
+            .withMessage('Password must be minimum of 6 characters'),
+    ],
 };
