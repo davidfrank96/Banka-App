@@ -16,6 +16,46 @@ class UserController {
     });
   }
 
+  static async login(req, res) {
+    const { email, password } = req.body;
+    const response = await Users.findByEmail(email);
+    if (!response) {
+      return res.status(401).json({
+        status: 401,
+        error: "Invalid Credentials"
+      });
+    }
+    const isPasswordValid = await UserController.verifyPassword(
+      password,
+      response.password
+    );
+    if (!isPasswordValid) {
+      return res.status(401).json({
+        status: 401,
+        error: "Invalid Credentials"
+      });
+    }
+    const token = Authorization.generateToken(response);
+    return res.status(200).json({
+      status: 200,
+      data: {
+        token,
+        user: UserController.getUserobj(response)
+      }
+    });
+  }
+
+  /**
+   * @method verifyPassword
+   * @memberof UserController
+   * @param {string} password
+   * @param {string} hash
+   * @return {Promise} Promise of true or false
+   */
+  static verifyPassword(password, hash) {
+    return bcrypt.compareSync(password, hash);
+  }
+
   static getUserobj(data) {
     return {
       id: data.id,
