@@ -461,6 +461,11 @@ footer {
   margin: 26px;
 }
 
+.home{
+font-size: 10px;
+padding: 10px;
+}
+
 /* Login & Signup Page */
 .form_wrapper {
   height: 100%;
