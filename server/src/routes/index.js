@@ -1,5 +1,6 @@
 import express from 'express';
 import userRoutes from './users';
+import accountRoutes from "./accounts";
 
 const apiRoutes = express.Router();
 
@@ -14,6 +15,6 @@ apiRoutes.get('/v1', (req, res) => res.json({
 }));
 
 apiRoutes.use('/v1/auth', userRoutes);
-
+apiRoutes.use("/v1/accounts", accountRoutes);
 
 export default apiRoutes;
