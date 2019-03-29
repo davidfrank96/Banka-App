@@ -32,5 +32,53 @@ class Authorization {
         return token;
     }
 
+    static async authenticate(req, res, next) {
+        try {
+            const token = Authorization.getToken(req);
+            if (!token) {
+                return res.status(401).json({
+                    status: 401,
+                    error: 'Unauthorized user',
+                });
+            }
+            const decoded = await jwt.verify(token, process.env.SECRET);
+            const response = UserModel.findById(decoded.user.id);
+            if (!response) {
+                return res.status(400).json({
+                    status: 400,
+                    message: 'Token is invalid',
+                });
+            }
+            req.user = decoded.user;
+            next();
+        } catch (error) {
+            if (error.name === 'TokenExpiredError') {
+                return res.status(401).json({
+                    status: 401,
+                    error: 'Token Expired',
+                });
+            }
+        }
+    }
+
+    static async isStaff(req, res, next) {
+        const { id } = req.user;
+        const response = await UserModel.findById(id);
+
+        try {
+            if (response.type === 'Client') {
+                return res.status(403).json({
+                    status: 403,
+                    error: 'Forbidden access, Admin only',
+                });
+            }
+            next();
+        } catch (error) {
+            return res.status(500).json({
+                status: 500,
+                error,
+            });
+        }
+    }
 }
     export default Authorization;
