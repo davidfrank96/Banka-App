@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Banka -Settings</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header class="staff">
+        <div class="overlay hide"></div>
+
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="red">BANKA</span> <span class="coin">Reset Password</span>
+                </a>
+            </div>
+            <ul class="main-nav__list">
+
+                <li class="main-nav__list-item">
+                    <a href="settings.html"><b>Settings</b></a>
+                </li>
+                <li class="main-nav__list-item">
+                    <a href="user_profile.html">Home</a>
+                </li>
+                <li class="main-nav__list-item">
+                    <a href="index.html">Logout</a>
+                </li>
+            </ul>
+            <div class="burger burger-slip mobile-menu">
+                <div class="burger-lines"></div>
+            </div>
+        </nav>
+        <nav class="mobile-nav hide">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="red">BANKA</span> <span class="coin">Reset Password</span>
+                </a>
+            </div>
+            <ul class="mobile-nav__list">
+                <li class="main-nav__list-item">
+                    <a href="settings.html"><b>Settings</b></a>
+                </li>
+                <li class="main-nav__list-item">
+                    <a href="user_profile.html">Home</a>
+                </li>
+                <li class="main-nav__list-item">
+                    <a href="index.html">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <body>
+
+        <section class="form_admin">
+            <form action="#" method="post" class="page_form" id="registerForm">
+                <h3>
+                    Banka <span class="red">Reset Password</span></h3>
+
+                <div class="form-group">
+                    <input type="text" name="Account number" class="form-field" placeholder=" Your Email"
+                        required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="purpose" class="form-field" placeholder="Old Password" required>
+                </div>
+                
+                <div class="form-account">
+                    <input type="text" name="name" class="form-field" placeholder="New password" required>
+                    <input type="text" name="name" class="form-field" placeholder="Confirm Password" required>
+                </div>
+
+
+                <div class="form-group">
+                    <p class="page_link"><input type="checkbox" name="checkbox" value="check" id="agree" required /> I
+                        have read and agree to the Terms and Conditions
+                        and Privacy Policy </p>
+                </div>
+                <button type="submit">Reset</button>
+                <p class="page_link">Back to Home? <a href="user_profile.html">Click Here</a></p>
+            </form>
+        </section>
+
+
+
+    </body>
+    <footer>
+        <p>&copy; 2019 Copyright. <span class="red">Banka</span>.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
