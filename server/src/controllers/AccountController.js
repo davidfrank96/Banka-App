@@ -15,6 +15,25 @@ class AccountController {
             },
         });
     }
+
+    static async update(req, res) {
+        const account = AccountModel.findByNumber(req.params.id);
+        if (!account) {
+            return res.status(404).json({
+                status: 404,
+                message: 'Account not found',
+            });
+        }
+
+        const updatedAccount = AccountModel.update(req.params.id, req.body);
+        return res.status(200).json({
+            status: 200,
+            data: {
+                accountNumber: req.params.id,
+                status: updatedAccount.status,
+            },
+        });
+    }
 }    
 
 export default AccountController;
