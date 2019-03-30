@@ -59,6 +59,18 @@ class Account {
         return this.accounts[index];
     }
 
+    /**
+     * @param {*} id
+     * @returns {}
+     * @memberof Account
+     */
+    delete(id) {
+        const account = this.findByNumber(id);
+        const index = this.accounts.indexOf(account);
+        this.accounts.splice(index, 1);
+
+        return {};
+    }
 }
 
 export default new Account();
