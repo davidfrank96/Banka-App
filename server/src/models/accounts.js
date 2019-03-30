@@ -44,6 +44,21 @@ class Account {
     findByNumber(number) {
         return this.accounts.find(data => data.accountNumber === parseInt(number));
     }
+
+    /**
+    * @param {*} id
+    * @param {*} data
+    * @returns { Object }
+    * @memberof Account
+    */
+    update(accountNumber, data) {
+        const account = this.findByNumber(accountNumber);
+        const index = this.accounts.indexOf(account);
+        this.accounts[index].status = data.status || account.status;
+
+        return this.accounts[index];
+    }
+
 }
 
 export default new Account();
