@@ -16,5 +16,6 @@ accountRoutes.use(Authorization.authenticate);
 
 accountRoutes.post("/", AccountValidation.createAccount, validation, AccountController.createAccount);
 accountRoutes.patch("/:id", AccountValidation.updateAccount, validation, AccountController.update);
+accountRoutes.delete("/:id", AccountController.delete);
 
 export default accountRoutes;
