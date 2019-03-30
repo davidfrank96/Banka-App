@@ -45,3 +45,5 @@ class Account {
         return this.accounts.find(data => data.accountNumber === parseInt(number));
     }
 }
+
+export default new Account();
