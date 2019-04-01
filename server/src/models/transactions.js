@@ -22,7 +22,15 @@ class Transaction {
     this.accounts[index].balance += parseInt(data.amount);
 
     return this.accounts[index];
-  }
+    }
+    
+    debit(accountNumber, data) {
+        const account = AccountModel.findByNumber(accountNumber);
+        const index = this.accounts.indexOf(account);
+        this.accounts[index].balance -= parseInt(data.amount);
+
+        return this.accounts[index];
+    }
 }
 
 export default new Transaction();    
