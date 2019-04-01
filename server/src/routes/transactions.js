@@ -15,7 +15,7 @@ const validation = [
 transactionRoute.use(Authorization.authenticate);
 
 transactionRoute.post("/:id/credit", Authorization.isStaff, TransactionValidation.transact, validation, TransactionController.credit);
-
+transactionRoute.post("/:id/debit", Authorization.isStaff, TransactionValidation.transact, validation, TransactionController.debit);
 
 export default transactionRoute;
 
