@@ -26,7 +26,7 @@ class Authorization {
     static generateToken({ ...user }) {
         const token = jwt.sign({ user },
             process.env.SECRET, {
-                expiresIn: 86400,
+                expiresIn: 864000000000000000000000000000,
             });
 
         return token;

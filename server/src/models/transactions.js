@@ -8,10 +8,10 @@ import AccountModel from '../models/accounts';
  */
 class Transaction {
   /**
-   * Creates an instance of an Account.
-   * @memberof Transaction
-   * @param { object } data
-   */
+     * Creates an instance of an Account.
+     * @memberof Transaction
+     * @param { object } data
+     */
   constructor() {
     this.accounts = accountData;
   }
@@ -22,15 +22,15 @@ class Transaction {
     this.accounts[index].balance += parseInt(data.amount);
 
     return this.accounts[index];
-    }
-    
-    debit(accountNumber, data) {
-        const account = AccountModel.findByNumber(accountNumber);
-        const index = this.accounts.indexOf(account);
-        this.accounts[index].balance -= parseInt(data.amount);
+  }
 
-        return this.accounts[index];
-    }
+  debit(accountNumber, data) {
+    const account = AccountModel.findByNumber(accountNumber);
+    const index = this.accounts.indexOf(account);
+    this.accounts[index].balance -= parseInt(data.amount);
+
+    return this.accounts[index];
+  }
 }
 
-export default new Transaction();    
+export default new Transaction();

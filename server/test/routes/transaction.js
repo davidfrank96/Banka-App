@@ -7,11 +7,7 @@ import tokens from "../utils/tokens";
 import app from "../../src/app";
 
 const { userToken, staffToken } = tokens;
-const {
-  validTransaction,
-  emptyTransaction,
-  excessTransaction
-} = mockData.transaction;
+const { validTransaction, emptyTransaction, excessTransaction } = mockData.transaction;
 
 describe("Transaction routes:", () => {
   describe("## Credit", () => {
