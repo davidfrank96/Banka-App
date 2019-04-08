@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "stable"
+
+cache:
+  directories:
+    - "node_modules"
+
+env:
+  global:
+    - CODECLIMATE_REPO_TOKEN=10f679124c72d07be9669b60bab2454ebe2168701f3a934f08e5b1e99255757f
+    - Travis_REPO_TOKEN=PaGRiWt19dxv2dOM-_iKWw
+    - SECRET=esther96
+
+install:
+  - npm install
+
+script:
+  - npm test
+
+after_success:
+  - npm run coverage

@@ -17,5 +17,14 @@ export default {
       .custom(value => notEmpty(value, "Opening Balance cannot be left blank"))
       .isNumeric()
       .withMessage("Balance must be an Integer")
-  ]
+  ],
+  updateAccount: [
+    check('status')
+      .trim()
+      .exists()
+      .withMessage('Status must be specified')
+      .custom(value => notEmpty(value, 'Status field cannot be left blank'))
+      .isIn(['active', 'dormant'])
+      .withMessage('Status type does not exist'),
+  ],
 };    
