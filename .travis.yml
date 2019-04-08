@@ -10,6 +10,7 @@ env:
   global:
     - CODECLIMATE_REPO_TOKEN=9e83697183b61817c399b2199742dc61ed9f1c454e1d973774eafdc80807db67
     - Travis_REPO_TOKEN=PaGRiWt19dxv2dOM-_iKWw
+    - SECRET=esther96
 
 install:
   - npm install
