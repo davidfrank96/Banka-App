@@ -12,7 +12,8 @@
     "coveralls-coverage": "coveralls < lcov.info",
     "coverage": "nyc npm test && npm run generate-lcov && npm run coveralls-coverage && npm run codeclimate-coverage",
     "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
-    "generate-lcov": "nyc report --reporter=text-lcov > lcov.info"  
+    "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
+    "heroku-postbuild": "npm run build"  
   },
   "repository": {
     "type": "git",
