@@ -235,6 +235,14 @@ background: #C5B358;
   display: none;
 }
 
+.arrow_up{
+  color:green
+}
+
+.arrow_down{
+  color:red
+}
+
 .overlay {
   position: fixed;
   height: 100%;
@@ -709,7 +717,7 @@ select.form-field{
 .table-foot__list-item {
   display: inline-flex;
   margin: 0 40px;
-  min-width: 60px;
+  min-width: 30px;
 }
 
 .table-head__list-item:nth-child(3) {
