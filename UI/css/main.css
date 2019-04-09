@@ -36,6 +36,27 @@ button {
   cursor: pointer;
 }
 
+.but {
+border-radius: 9px;
+color: white;
+font-size: 135%;
+padding: 10px 20px;
+border: solid #3ba09d 1px;
+text-transform: uppercase;
+text-decoration: none;
+transition: all .4s;
+  animation: moveUp 1.5s ease-in;
+}
+
+.but:hover {
+  border: solid #fff;
+  color: #3ba09d;
+}
+
+.bullet{
+  display: inherit;
+}
+
 .delete{
   padding: 0.8rem;
   border: none;
