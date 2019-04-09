@@ -55,6 +55,8 @@ transition: all .4s;
 
 .bullet{
   display: inherit;
+   transition: all 0.5s;
+  animation: moveUp 1.5s ease-in;
 }
 
 .delete{
@@ -162,7 +164,7 @@ input[type=checkbox]:checked + .switch-btn {
 @keyframes moveUp {
   0%{
     opacity: 0;
-    transform: translateX(2rem);
+    transform: translateY(7rem);
   }
   100%{
     opacity: 1;
@@ -421,6 +423,10 @@ header {
   letter-spacing: 0.1rem;
   animation: moveRight 1s ease-in;
   
+}
+
+.title_banner  {
+  animation: moveUp 1s ease-in;
 }
 
 .banner__text:nth-child(1) {
@@ -1000,6 +1006,20 @@ select.form-field{
     display: block;
   }
 
+  .but{
+   display: inline-flex;
+  
+  }
+
+  .but:hover {
+  border: solid #fff;
+  color: #3ba09d;
+}
+ 
+ .text-box{
+   margin-top: 80px;
+    border-top: 10px;
+ }
   .menu__food-item {
     width: 40%;
   }
@@ -1041,6 +1061,20 @@ select.form-field{
     width: 100%;
   }
 
+  .but{
+   display: inline-flex;
+  
+  }
+
+  .but:hover {
+  border: solid #fff;
+  color: #3ba09d;
+}
+ 
+ .text-box{
+   margin-top: 80px;
+    border-top: 10px;
+ }
 
   .modal-title {
     font-size: 1rem;
@@ -1064,6 +1098,10 @@ select.form-field{
     font-size: 0.9rem;
   }
 
+  .but:hover {
+  border: solid #fff;
+  color: #3ba09d;
+}
   .modal-header .close {
     font-size: 0.7rem;
   }
