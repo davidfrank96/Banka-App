@@ -36,6 +36,29 @@ button {
   cursor: pointer;
 }
 
+.but {
+border-radius: 9px;
+color: white;
+font-size: 135%;
+padding: 10px 20px;
+border: solid #3ba09d 1px;
+text-transform: uppercase;
+text-decoration: none;
+transition: all .4s;
+  animation: moveUp 1.5s ease-in;
+}
+
+.but:hover {
+  border: solid #fff;
+  color: #3ba09d;
+}
+
+.bullet{
+  display: inherit;
+   transition: all 0.5s;
+  animation: moveUp 1.5s ease-in;
+}
+
 .delete{
   padding: 0.8rem;
   border: none;
@@ -141,7 +164,7 @@ input[type=checkbox]:checked + .switch-btn {
 @keyframes moveUp {
   0%{
     opacity: 0;
-    transform: translateX(2rem);
+    transform: translateY(7rem);
   }
   100%{
     opacity: 1;
@@ -210,6 +233,14 @@ background: #C5B358;
 
 .hide {
   display: none;
+}
+
+.arrow_up{
+  color:green
+}
+
+.arrow_down{
+  color:red
 }
 
 .overlay {
@@ -400,6 +431,10 @@ header {
   letter-spacing: 0.1rem;
   animation: moveRight 1s ease-in;
   
+}
+
+.title_banner  {
+  animation: moveUp 1s ease-in;
 }
 
 .banner__text:nth-child(1) {
@@ -682,7 +717,7 @@ select.form-field{
 .table-foot__list-item {
   display: inline-flex;
   margin: 0 40px;
-  min-width: 60px;
+  min-width: 30px;
 }
 
 .table-head__list-item:nth-child(3) {
@@ -979,6 +1014,20 @@ select.form-field{
     display: block;
   }
 
+  .but{
+   display: inline-flex;
+  
+  }
+
+  .but:hover {
+  border: solid #fff;
+  color: #3ba09d;
+}
+ 
+ .text-box{
+   margin-top: 80px;
+    border-top: 10px;
+ }
   .menu__food-item {
     width: 40%;
   }
@@ -1020,6 +1069,20 @@ select.form-field{
     width: 100%;
   }
 
+  .but{
+   display: inline-flex;
+  
+  }
+
+  .but:hover {
+  border: solid #fff;
+  color: #3ba09d;
+}
+ 
+ .text-box{
+   margin-top: 80px;
+    border-top: 10px;
+ }
 
   .modal-title {
     font-size: 1rem;
@@ -1043,6 +1106,10 @@ select.form-field{
     font-size: 0.9rem;
   }
 
+  .but:hover {
+  border: solid #fff;
+  color: #3ba09d;
+}
   .modal-header .close {
     font-size: 0.7rem;
   }
