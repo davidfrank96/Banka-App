@@ -296,6 +296,16 @@ header {
   background-position: 10% 65%;
 }
 
+.login{
+   padding: 30px;
+  color: #fff;
+  background-image: url("../images/heil-valley-ranch-night-sky-1280x768.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+  background-position: 10% 65%;
+}
 
 
 #card img{
@@ -356,7 +366,7 @@ header {
 .mobile-nav__list-item a {
   text-decoration: none;
   color: inherit;
-  transition: all 0.5s;
+  transition: all 0.7s;
 }
 
 .mobile-nav__list-item a {
@@ -407,10 +417,11 @@ header {
   top: 0;
   width: 30vw;
   height: 100vh;
-  background-color:#181424;
+  background-color:#22202b;
   padding: 50px;
   z-index: 10;
   transition: all 0.5s;
+  border-left: solid 3px var(--red)
 }
 
 .mobile-nav .logo {
@@ -488,6 +499,7 @@ footer {
   text-align: center;
   padding: 10px 0;
   background-color: #000;
+  border-top: solid 3px var(--red)
 }
 
 .foot_home{
