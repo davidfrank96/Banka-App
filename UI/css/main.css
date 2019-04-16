@@ -1,6 +1,6 @@
 /* Root Variables*/
 :root {
-  --red: 	#8abdae;
+  --lightblue: 	#8abdae;
   --nunito: "Nunito", sans-serif;
   --gold: #C5B358;
   --coin: #D3D3D3;
@@ -219,7 +219,7 @@ background: #C5B358;
 
 /*Colors*/
 .red {
-  color: var(--red);
+  color: var(--lightblue);
 }
 .coin {
    color: var(--coin);
@@ -315,7 +315,7 @@ header {
   border-radius: 5px;
   margin-right: 20px;
   transform: all 0.5 ease-in;
-  border: 2px solid var(--red);
+  border: 2px solid var(--lightblue);
   
   
 }
@@ -379,7 +379,7 @@ header {
 .mobile-nav__list-item a:hover,
 .mobile-nav__list-item a:focus,
 .mobile-nav__list-item a:active {
-  color: var(--red);
+  color: var(--lightblue);
 }
 
 .main-nav__list-item a:hover::after,
@@ -397,7 +397,7 @@ header {
   display: block;
   margin-top: 3px;
   width: 0%;
-  border-bottom: 2px solid var(--red);
+  border-bottom: 2px solid var(--lightblue);
   transition: all 0.5s;
 }
 
@@ -421,7 +421,7 @@ header {
   padding: 50px;
   z-index: 10;
   transition: all 0.5s;
-  border-left: solid 3px var(--red)
+  border-left: solid 3px var(--lightblue)
 }
 
 .mobile-nav .logo {
@@ -483,7 +483,7 @@ header {
 .banner__button:focus,
 .banner__button:active {
   background-color: #fff;
-  color: var(--red);
+  color: var(--lightblue);
   transform: scale(1.1);
 }
 
@@ -569,7 +569,7 @@ select.form-field{
   padding: 15px;
   margin: 5px;
   outline: 0;
-  border: 1px solid var(--red);
+  border: 1px solid var(--lightblue);
   border-radius: 40px;
   font-family: inherit;
 }
@@ -584,7 +584,7 @@ select.form-field{
 }
 
 .page_link a {
-  color: var(--red);
+  color: var(--lightblue);
 }
 
 .page_link a:hover {
@@ -643,7 +643,7 @@ select.form-field{
   z-index: -1;
   content: "";
   display: block;
-  border: 10px solid var(--red);
+  border: 10px solid var(--lightblue);
 }
 
 .ribbon span {
@@ -651,7 +651,7 @@ select.form-field{
   display: block;
   width: 266px;
   padding: 5px 0;
-  background-color: var(--red);
+  background-color: var(--lightblue);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #fff;
   font-weight: 700;
@@ -706,7 +706,7 @@ select.form-field{
 
 .table-head,
 .table-foot {
-  border-left: 20px solid var(--red);
+  border-left: 20px solid var(--lightblue);
 }
 
 .table-row {
