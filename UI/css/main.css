@@ -1045,14 +1045,27 @@ select.form-field{
 
   .table-head__list-item:last-child,
   .table-row__list-item:last-child {
-    margin-left: 20px;
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .table-head__list-item,
   .table-row__list-item {
     margin: 5px 20px;
   }
-
+  
+  .table-head{
+  margin: 5px 20px 30px ;
+  }
+  
+  .table-row{
+  margin: 90px 6px;
+  }
+  
+  .order-summary__list{
+    margin-left: 0px ;
+  }
   .home-page .banner {
     padding: 60px 30px;
   }
