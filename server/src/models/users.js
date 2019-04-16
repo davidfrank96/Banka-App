@@ -25,8 +25,8 @@ class User {
         const newUser = {
             id: this.users.length + 1,
             email: data.email,
-            firstname: data.firstname,
-            lastname: data.lastname,
+            firstName: data.firstName,
+            lastName: data.lastName,
             password: hashedPassword(data.password, 10),
             type: data.type,
             isAdmin: data.isAdmin || false,

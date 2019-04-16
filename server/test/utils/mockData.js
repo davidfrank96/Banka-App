@@ -3,8 +3,8 @@ import hashedPassword from "../../src/helpers/hashPassword";
 export default {
   signup: {
     validClientDetails: {
-      firstname: "Ashley",
-      lastname: "Jones",
+      firstName: "Ashley",
+      lastName: "Jones",
       email: "test@gmail.com",
       password: hashedPassword("password", 10),
       type: "Client",
@@ -13,8 +13,8 @@ export default {
       modifiedAt: null
     },
     validStaffDetails: {
-      firstname: "James",
-      lastname: "Barnes",
+      firstName: "James",
+      lastName: "Barnes",
       email: "test@gmail.com",
       password: hashedPassword("password", 10),
       type: "Staff",
@@ -23,7 +23,7 @@ export default {
       modifiedAt: null
     },
     invalidUserDetails: {
-      firstname: "Ashley",
+      firstName: "Ashley",
       password: hashedPassword("password", 10),
       type: "emoji",
       isAdmin: false,

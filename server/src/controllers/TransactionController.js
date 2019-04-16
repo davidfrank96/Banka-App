@@ -50,8 +50,8 @@ class TransactionController {
     }
 
     if (accountDetail.balance < amount) {
-      return res.status(409).json({
-        status: 409,
+      return res.status(400).json({
+        status: 400,
         message: "Insufficient funds for transaction"
       });
     }

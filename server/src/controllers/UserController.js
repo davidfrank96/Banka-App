@@ -5,6 +5,13 @@ import Authorization from '../middlewares/Authorization';
 
 class UserController {
   static async signup(req, res) {
+    const response = await Users.findByEmail(req.body.email);
+    if (response) {
+      return res.status(409).json({
+        status: 409,
+        error: "Email Already Exists"
+      });
+    }
     const createdUser = await Users.create(req.body);
     const token = await Authorization.generateToken(createdUser);
     return res.status(201).json({
@@ -60,8 +67,8 @@ class UserController {
     return {
       id: data.id,
       email: data.email,
-      firstname: data.firstname,
-      lastname: data.lastname,
+      firstName: data.firstName,
+      lastName: data.lastName,
       type: data.type,
       isAdmin: data.isAdmin,
       created_at: data.createdAt,
