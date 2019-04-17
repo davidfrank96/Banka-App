@@ -2,9 +2,6 @@ const overlay = document.querySelector('.overlay');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 
-const redirect = location => {
-    window.location.href = `${location}.html`;
-};
 
 const toggleMobileNav = () => {
     const mobileNav = document.querySelector('.mobile-nav');
