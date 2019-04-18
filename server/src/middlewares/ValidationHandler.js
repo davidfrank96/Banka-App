@@ -45,6 +45,7 @@ class ValidationHandler {
       const mappedErrors = errors.mapped();
 
       return res.status(400).json({
+        status: 400,
         errors: mappedErrors
       });
     }

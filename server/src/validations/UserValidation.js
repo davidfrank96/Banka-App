@@ -3,12 +3,12 @@ import notEmpty from '../helpers/notEmpty';
 
 export default {
     signup: [
-        check('firstname')
+        check('firstName')
             .trim()
             .exists()
             .withMessage('Firstname must be specific')
             .custom(value => notEmpty(value, 'Firstname field cannot be left blank')),
-        check('lastname')
+        check('lastName')
             .trim()
             .exists()
             .withMessage('Lastname must be specific')
@@ -26,7 +26,7 @@ export default {
             .withMessage('Type must be specified')
             .custom(value => notEmpty(value, 'Type field cannot be left blank'))
             .isIn(['Client', 'Staff'])
-            .withMessage('Type type does not exist'),
+            .withMessage('User Type  does not exist'),
         check('password')
             .trim()
             .exists().withMessage('Password field is required')

@@ -4,11 +4,11 @@ import UserModel from '../models/users'
 
 class Authorization {
     /**
-         * @method getToken
-         * @memberof Authorization
-         * @param {object} req
-         * @returns {string} token
-         */
+     * @method getToken
+     * @memberof Authorization
+     * @param {object} req
+     * @returns {string} token
+     */
     static getToken(req) {
         const bearerToken = req.headers.authorization;
         const token = bearerToken && bearerToken.replace('Bearer ', '');
@@ -17,16 +17,16 @@ class Authorization {
     }
 
     /**
-       * @method generateToken
-       * @memberof Authorization
-       * @param {object} user
-       * @returns {string} token
-       * expires in 24 hours
-       */
+     * @method generateToken
+     * @memberof Authorization
+     * @param {object} user
+     * @returns {string} token
+     * expires in 24 hours
+     */
     static generateToken({ ...user }) {
         const token = jwt.sign({ user },
             process.env.SECRET, {
-                expiresIn: 86400,
+                expiresIn: 864000000000000000000000000,
             });
 
         return token;
@@ -69,7 +69,7 @@ class Authorization {
             if (response.type === 'Client') {
                 return res.status(403).json({
                     status: 403,
-                    error: 'Forbidden access, Admin only',
+                    error: 'Forbidden access, Admin or Staff only',
                 });
             }
             next();
