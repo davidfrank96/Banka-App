@@ -8,10 +8,10 @@ import AccountModel from '../models/accounts';
  */
 class Transaction {
   /**
-     * Creates an instance of an Account.
-     * @memberof Transaction
-     * @param { object } data
-     */
+   * Creates an instance of an Account.
+   * @memberof Transaction
+   * @param { object } data
+   */
   constructor() {
     this.accounts = accountData;
   }

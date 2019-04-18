@@ -1,6 +1,6 @@
 /* Root Variables*/
 :root {
-  --red: 	#8abdae;
+  --lightblue: 	#8abdae;
   --nunito: "Nunito", sans-serif;
   --gold: #C5B358;
   --coin: #D3D3D3;
@@ -219,7 +219,7 @@ background: #C5B358;
 
 /*Colors*/
 .red {
-  color: var(--red);
+  color: var(--lightblue);
 }
 .coin {
    color: var(--coin);
@@ -296,6 +296,16 @@ header {
   background-position: 10% 65%;
 }
 
+.login{
+   padding: 30px;
+  color: #fff;
+  background-image: url("../images/heil-valley-ranch-night-sky-1280x768.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+  background-position: 10% 65%;
+}
 
 
 #card img{
@@ -305,7 +315,7 @@ header {
   border-radius: 5px;
   margin-right: 20px;
   transform: all 0.5 ease-in;
-  border: 2px solid var(--red);
+  border: 2px solid var(--lightblue);
   
   
 }
@@ -356,7 +366,7 @@ header {
 .mobile-nav__list-item a {
   text-decoration: none;
   color: inherit;
-  transition: all 0.5s;
+  transition: all 0.7s;
 }
 
 .mobile-nav__list-item a {
@@ -369,7 +379,7 @@ header {
 .mobile-nav__list-item a:hover,
 .mobile-nav__list-item a:focus,
 .mobile-nav__list-item a:active {
-  color: var(--red);
+  color: var(--lightblue);
 }
 
 .main-nav__list-item a:hover::after,
@@ -387,7 +397,7 @@ header {
   display: block;
   margin-top: 3px;
   width: 0%;
-  border-bottom: 2px solid var(--red);
+  border-bottom: 2px solid var(--lightblue);
   transition: all 0.5s;
 }
 
@@ -407,10 +417,11 @@ header {
   top: 0;
   width: 30vw;
   height: 100vh;
-  background-color:#181424;
+  background-color:#22202b;
   padding: 50px;
   z-index: 10;
   transition: all 0.5s;
+  border-left: solid 3px var(--lightblue)
 }
 
 .mobile-nav .logo {
@@ -472,7 +483,7 @@ header {
 .banner__button:focus,
 .banner__button:active {
   background-color: #fff;
-  color: var(--red);
+  color: var(--lightblue);
   transform: scale(1.1);
 }
 
@@ -558,7 +569,7 @@ select.form-field{
   padding: 15px;
   margin: 5px;
   outline: 0;
-  border: 1px solid var(--red);
+  border: 1px solid var(--lightblue);
   border-radius: 40px;
   font-family: inherit;
 }
@@ -573,12 +584,66 @@ select.form-field{
 }
 
 .page_link a {
-  color: var(--red);
+  color: var(--lightblue);
 }
 
 .page_link a:hover {
   text-decoration: underline;
 }
+
+/* tables */
+table {
+/* remove space between borders */
+  border-collapse: collapse;
+  width: 80%;
+  margin: 0 auto;
+  font-family: "Comic Sans Ms", cursive, Sans-serif;
+  cursor: pointer;
+  border-radius:40px; 
+}
+
+table tr:first-child td {
+	border-top: 0;
+}
+
+table tr:nth-child(3) td {
+	border: 0;
+}
+
+table tr:nth-child(5) td {
+	border: 0;
+}
+
+table tr:last-child td {
+	border-bottom: 0;
+}
+
+table tr td:first-child {
+	border-left: 0;
+}
+
+table tr td:last-child {
+	border-right: 0;
+}
+
+table th {
+  text-align: left;
+  background-color: #8abdae;
+  color: #fff;
+  padding: 10px 50px 8px 12px;
+  
+}
+table td {
+  border: 1px solid #e3e3e3;
+  padding: 25px 25px;
+  border-radius: 4px;
+  
+}
+table tr:nth-child(odd) td {
+/* give borders different background after the other (optional) */
+  background-color: #e7edf0;
+}
+
 
 /* Homepage */
 .home-page {
@@ -632,7 +697,7 @@ select.form-field{
   z-index: -1;
   content: "";
   display: block;
-  border: 10px solid var(--red);
+  border: 10px solid var(--lightblue);
 }
 
 .ribbon span {
@@ -640,7 +705,7 @@ select.form-field{
   display: block;
   width: 266px;
   padding: 5px 0;
-  background-color: var(--red);
+  background-color: var(--lightblue);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #fff;
   font-weight: 700;
@@ -695,7 +760,7 @@ select.form-field{
 
 .table-head,
 .table-foot {
-  border-left: 20px solid var(--red);
+  border-left: 20px solid var(--lightblue);
 }
 
 .table-row {
@@ -921,135 +986,6 @@ select.form-field{
 }
 
 /* General Responsive Styles */
-@media only screen and (max-width: 900px) {
-  .page-section {
-    margin: 80px 20px;
-  }
-
-  .menu {
-    display: block;
-  }
-
-  .menu__label {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .menu__label h3 {
-    font-size: 3rem;
-    writing-mode: unset;
-    transform: none;
-  }
-
-  .menu__food {
-    width: 100%;
-  }
-
-  .menu__food-item {
-    height: auto;
-  }
-
-  .page_form {
-    padding: 40px 40px 60px 40px;
-    width: 50%;
-  }
-}
-
-/* TV */
-@media only screen and (min-width: 2000px) {
-  .menu__food-item {
-    width: 10%;
-  }
-
-  .page_form button[type="submit"] {
-    padding: 1rem;
-    font-size: 1.2rem;
-  }
-}
-
-/* Laptop - L*/
-@media only screen and (min-width: 1200px) and (max-width: 1800px) {
-  .menu__food-item {
-    width: 15%;
-  }
-
-  .page_form button[type="submit"] {
-    padding: 1rem 1.2rem;
-    font-size: 1.2rem;
-  }
-}
-
-/* Laptop */
-@media only screen and (min-width: 1000px) {
-  .home-page .banner__text {
-    font-size: 2rem;
-  }
-}
-
-/* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1000px) {
-  .card-btn {
-    padding: 0.8rem;
-  }
-  .home-page .banner {
-    padding: 80px 60px;
-  }
-
-  .home-page .banner__text {
-    font-size: 1.7rem;
-  }
-}
-
-/* Mobile - L*/
-@media only screen and (max-width: 500px) {
-  .page_form {
-    width: 60%;
-  }
-
-  .main-nav__list {
-    display: none;
-  }
-
-  .mobile-menu {
-    display: block;
-  }
-
-  .but{
-   display: inline-flex;
-  
-  }
-
-  .but:hover {
-  border: solid #fff;
-  color: #3ba09d;
-}
- 
- .text-box{
-   margin-top: 80px;
-    border-top: 10px;
- }
-  .menu__food-item {
-    width: 40%;
-  }
-
-  .table-head__list-item:last-child,
-  .table-row__list-item:last-child {
-    margin-left: 20px;
-  }
-
-  .table-head__list-item,
-  .table-row__list-item {
-    margin: 5px 20px;
-  }
-
-  .home-page .banner {
-    padding: 60px 30px;
-  }
-
-  .home-page .banner__text {
-    font-size: 1.5rem;
-  }
-}
 
 /* Mobile - M & S*/
 @media only screen and (max-width: 380px) {
@@ -1118,3 +1054,151 @@ select.form-field{
     font-size: 1.3rem;
   }
 }
+
+
+@media only screen and (max-width: 900px) {
+  .page-section {
+    margin: 80px 20px;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .menu__label {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .menu__label h3 {
+    font-size: 3rem;
+    writing-mode: unset;
+    transform: none;
+  }
+
+  .menu__food {
+    width: 100%;
+  }
+
+  .menu__food-item {
+    height: auto;
+  }
+
+  .page_form {
+    padding: 40px 40px 60px 40px;
+    width: 50%;
+  }
+}
+
+/* Mobile - L*/
+@media only screen and (max-width: 500px) {
+  .page_form {
+    width: 60%;
+  }
+
+  .main-nav__list {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .but{
+   display: inline-flex;
+  
+  }
+
+  .but:hover {
+  border: solid #fff;
+  color: #3ba09d;
+}
+ 
+ .text-box{
+   margin-top: 80px;
+    border-top: 10px;
+ }
+  .menu__food-item {
+    width: 40%;
+  }
+
+  .table-head__list-item:last-child,
+  .table-row__list-item:last-child {
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .table-head__list-item,
+  .table-row__list-item {
+    margin: 5px 20px;
+  }
+  
+  .table-head{
+  margin: 5px 20px 30px ;
+  }
+  
+  .table-row{
+  margin: 90px 6px;
+  }
+  
+  .order-summary__list{
+    margin-left: 0px ;
+  }
+  .home-page .banner {
+    padding: 60px 30px;
+  }
+
+  .home-page .banner__text {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* TV */
+@media only screen and (min-width: 2000px) {
+  .menu__food-item {
+    width: 10%;
+  }
+
+  .page_form button[type="submit"] {
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Laptop - L*/
+@media only screen and (min-width: 1200px) and (max-width: 1800px) {
+  
+  .menu__food-item {
+    width: 15%;
+  }
+
+  .page_form button[type="submit"] {
+    padding: 1rem 1.2rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Laptop */
+@media only screen and (min-width: 1000px) {
+  .home-page .banner__text {
+    font-size: 2rem;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1000px) {
+  .card-btn {
+    padding: 0.8rem;
+  }
+  .home-page .banner {
+    padding: 80px 60px;
+  }
+
+  .home-page .banner__text {
+    font-size: 1.7rem;
+  }
+}
+
+
