@@ -14,8 +14,8 @@ const validation = [
 
 accountRoutes.use(Authorization.authenticate);
 
-accountRoutes.post("/", AccountValidation.createAccount, validation, AccountController.createAccount);
-accountRoutes.patch("/:id", AccountValidation.updateAccount, validation, AccountController.update);
-accountRoutes.delete("/:id", AccountController.delete);
+accountRoutes.post("/",  AccountValidation.createAccount, validation, AccountController.createAccount);
+accountRoutes.patch("/:id", Authorization.isStaff, AccountValidation.updateAccount, validation, AccountController.update);
+accountRoutes.delete("/:id", Authorization.isStaff, AccountController.delete);
 
 export default accountRoutes;
