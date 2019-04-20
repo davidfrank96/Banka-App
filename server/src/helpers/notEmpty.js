@@ -5,7 +5,7 @@
  * @return {(error|bool)} returns error or true
  */
 function notEmpty(value, msg) {
-  if (value === "") {
+  if (value === '') {
     throw new Error(msg);
   }
 
@@ -13,3 +13,8 @@ function notEmpty(value, msg) {
 }
 
 export default notEmpty;
+
+
+
+
+const array = [5, 6, 7, 8, 9];
