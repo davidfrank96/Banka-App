@@ -1,5 +1,10 @@
-import { validationResult } from "express-validator/check";
-import { matchedData } from "express-validator/filter";
+import {
+  validationResult
+} from 'express-validator/check';
+import {
+  matchedData
+} from 'express-validator/filter';
+
 
 /**
  * @exports
@@ -18,7 +23,7 @@ class ValidationHandler {
   static isEmptyReq(req, res, next) {
     if (!Object.values(req.body).length) {
       return res.status(400).json({
-        error: "Empty PUT Requests Are Not Allowed"
+        error: 'Empty PUT Requests Are Not Allowed',
       });
     }
 
@@ -36,10 +41,7 @@ class ValidationHandler {
    */
   static validate(req, res, next) {
     const errors = validationResult(req);
-    req = {
-      ...req,
-      ...matchedData(req)
-    };
+    req = { ...req, ...matchedData(req), };
 
     if (!errors.isEmpty()) {
       const mappedErrors = errors.mapped();
