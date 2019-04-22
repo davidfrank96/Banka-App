@@ -13,3 +13,5 @@ const pool = new Pool({
 });
 
 export default pool;
+
+// Code gotten from codementor.io Olawale Aladeusi post
