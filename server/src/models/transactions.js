@@ -1,46 +1,35 @@
-/* eslint-disable class-methods-use-this */
 /* eslint-disable radix */
-import AccountModel from "./accounts";
-import db from "./index";
+import accountData from '../../data/accounts';
+import AccountModel from '../models/accounts';
 
 /**
  * @exports
  * @class Account
  */
 class Transaction {
-  find(id) {
-    const text = "SELECT * FROM accounts WHERE accountnumber = $1";
-    const response = db.query(text, [id]);
-    return response;
+  /**
+   * Creates an instance of an Account.
+   * @memberof Transaction
+   * @param { object } data
+   */
+  constructor() {
+    this.accounts = accountData;
   }
 
-  credit(data) {
-    const text = `INSERT INTO
-        transactions(type, accountNumber, cashier, amount, oldBalance, newBalance, created_at)
-        VALUES ($1, $2, $3, $4, $5, $6, $7) returning *`;
+  credit(accountNumber, data) {
+    const account = AccountModel.findByNumber(accountNumber);
+    const index = this.accounts.indexOf(account);
+    this.accounts[index].balance += parseInt(data.amount);
 
-    const response = db.query(text, data);
-    return response;
+    return this.accounts[index];
   }
 
-  debit(accountNumber, data, req) {
-    const userDetails = this.find(accountNumber);
-    const credit = [
-      "debit",
-      accountNumber,
-      req.user.id,
-      data.amount,
-      userDetails.balance,
-      parseFloat(userDetails.balance) - parseFloat(data.amount),
-      new Date()
-    ];
+  debit(accountNumber, data) {
+    const account = AccountModel.findByNumber(accountNumber);
+    const index = this.accounts.indexOf(account);
+    this.accounts[index].balance -= parseInt(data.amount);
 
-    const text = `INSERT INTO
-        transactions(type, accountNumber, cashier, amount, oldBalance, newBalance, created_at)
-        VALUES ($1, $2, $3, $4, $5, $6, $7) returning *`;
-
-    const response = db.query(text, credit);
-    return response;
+    return this.accounts[index];
   }
 }
 
