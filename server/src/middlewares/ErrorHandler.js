@@ -1,3 +1,7 @@
+/**
+ * @exports
+ * @class ErrorHandler
+ */
 class ErrorHandler {
   /**
    * Handlers uncaught erros in the app

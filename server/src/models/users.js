@@ -1,6 +1,8 @@
-import hashedPassword from '../helpers/hashPassword';
-import userData from '../../data/users';
-
+/* eslint-disable camelcase */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-unused-vars */
+import hashPassword from '../helpers/hashPassword';
+import db from './index';
 
 /**
  * @exports
@@ -8,42 +10,36 @@ import userData from '../../data/users';
  */
 class User {
     /**
-     * Creates an instance of a User.
-     * @memberof User
-     * @param { object } data
-     */
-    constructor() {
-        this.users = userData;
+       * @param {*} data
+       * @memberof User
+       * @returns { object } office object
+       */
+    // eslint-disable-next-line class-methods-use-this
+    create(req, data) {
+        const text = `INSERT INTO
+        users(firstname, lastname, email, type, is_admin, password, created_at) 
+        VALUES ($1, $2, $3, $4, $5, $6, $7) returning *`;
+        const {
+            firstname, lastname, email, type, is_admin, password, passwordCofirm,
+        } = data;
+        const newPassword = hashPassword(password, 10);
+        const user = [
+            firstname, lastname, email.toLowerCase(), type, is_admin, newPassword, new Date(),
+        ];
+        const response = db.query(text, user);
+        return response;
     }
 
-    /**
-     * @param {*} data
-     * @memberof User
-     * @returns { object } office object
-     */
-    create(data) {
-        const newUser = {
-            id: this.users.length + 1,
-            email: data.email,
-            firstName: data.firstName,
-            lastName: data.lastName,
-            password: hashedPassword(data.password, 10),
-            type: data.type,
-            isAdmin: data.isAdmin || false,
-            createdAt: new Date(),
-            modifiedAt: null,
-        }
-
-        this.users.push(newUser);
-        return newUser;
-    }
-
-    findByEmail(email) {
-        return this.users.find(data => data.email === email);
+    find(key) {
+        const query = 'SELECT * FROM users WHERE email=$1';
+        const response = db.query(query, [key]);
+        return response;
     }
 
     findById(id) {
-        return this.users.find(data => data.id === id);
+        const query = 'SELECT * FROM users WHERE id=$1';
+        const response = db.query(query, [id]);
+        return response;
     }
 }
 

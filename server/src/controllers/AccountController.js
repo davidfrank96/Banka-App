@@ -2,55 +2,65 @@ import AccountModel from '../models/accounts';
 
 class AccountController {
     static async createAccount(req, res) {
-        const accountData = await AccountModel.create(req.body, req);
-        const data = {
-          accountNumber: accountData.accountNumber,
-          firstName: accountData.firstName,
-            lastName: accountData.lastName,
-          email: req.user.email,
-          type: accountData.type,
-          openingBalance: accountData.balance
-        };
-        return res.status(201).json({
-            status: 201,
-           data,
-        });
+        try {
+            const response = await AccountModel.create(req.body, req);
+            return res.status(201).json({
+                status: res.statusCode,
+                message: 'Account created successfully',
+                data: response.rows[0],
+            });
+        } catch (error) {
+            return res.status(500).json({
+                status: res.statusCode,
+                error,
+            });
+        }
     }
 
     static async update(req, res) {
-        const account = AccountModel.findByNumber(req.params.id);
-        if (!account) {
-            return res.status(404).json({
-                status: 404,
-                message: 'Account not found',
+        try {
+            const { rows } = await AccountModel.findByNumber(req.params.id);
+            if (!rows[0]) {
+                return res.status(404).json({
+                    status: res.statusCode,
+                    error: 'Account Not Found',
+                });
+            }
+            const response = await AccountModel.update(req.params.id, req.body);
+            return res.status(200).json({
+                status: 200,
+                message: 'Account details updated successfully',
+                data: response.rows[0],
+            });
+        } catch (error) {
+            return res.status(500).json({
+                status: 500,
+                error,
             });
         }
-
-        const updatedAccount = AccountModel.update(req.params.id, req.body);
-        return res.status(200).json({
-            status: 200,
-            data: {
-                accountNumber: req.params.id,
-                status: updatedAccount.status,
-            },
-        });
     }
 
     static async delete(req, res) {
-        const account = AccountModel.findByNumber(req.params.id);
-        if (!account) {
-            return res.status(404).json({
-                status: 404,
-                message: 'Account not found',
+        try {
+            const { rows } = await AccountModel.findByNumber(req.params.id);
+            if (!rows[0]) {
+                return res.status(404).json({
+                    status: res.statusCode,
+                    error: 'Account Not Found',
+                });
+            }
+            await AccountModel.delete(req.params.id);
+            return res.status(200).json({
+                status: 200,
+                message: 'Account successfully deleted',
+            });
+        } catch (error) {
+            return res.status(500).json({
+                status: res.statusCode,
+                error,
             });
         }
-
-        await AccountModel.delete(req.params.id);
-        return res.status(200).json({
-            status: 200,
-            message: 'Account successfully deleted',
-        });
     }
-}    
+}
 
 export default AccountController;

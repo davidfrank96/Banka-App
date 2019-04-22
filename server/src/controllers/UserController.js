@@ -1,32 +1,41 @@
-import bcrypt from 'bcrypt';
-import Users from '../models/users';
-import Authorization from '../middlewares/Authorization';
-
+/* eslint-disable no-undef */
+import bcrypt from "bcrypt";
+import Users from "../models/users";
+import Authorization from "../middlewares/Authorization";
 
 class UserController {
   static async signup(req, res) {
-    const response = await Users.findByEmail(req.body.email);
-    if (response) {
-      return res.status(409).json({
-        status: 409,
-        error: "Email Already Exists"
+    try {
+      const { rows } = await Users.create(req, req.body);
+      const token = Authorization.generateToken(
+        UserController.getUserobj(rows[0])
+      );
+      return res.status(201).json({
+        status: res.statusCode,
+        message: "User registered successfully",
+        data: {
+          token,
+          user: UserController.getUserobj(rows[0])
+        }
+      });
+    } catch (error) {
+      if (error.routine === "_bt_check_unique") {
+        return res.status(400).json({
+          status: res.statusCode,
+          error: "Email already taken"
+        });
+      }
+      return res.status(500).json({
+        status: res.statusCode,
+        error
       });
     }
-    const createdUser = await Users.create(req.body);
-    const token = await Authorization.generateToken(createdUser);
-    return res.status(201).json({
-      status: 201,
-      data: {
-        token,
-        user: UserController.getUserobj(createdUser)
-      }
-    });
   }
 
   static async login(req, res) {
     const { email, password } = req.body;
-    const response = await Users.findByEmail(email);
-    if (!response) {
+    const { rows } = await Users.find(email);
+    if (!rows[0]) {
       return res.status(401).json({
         status: 401,
         error: "Invalid Credentials"
@@ -34,7 +43,7 @@ class UserController {
     }
     const isPasswordValid = await UserController.verifyPassword(
       password,
-      response.password
+      rows[0].password
     );
     if (!isPasswordValid) {
       return res.status(401).json({
@@ -42,12 +51,15 @@ class UserController {
         error: "Invalid Credentials"
       });
     }
-    const token = Authorization.generateToken(response);
+    
+    const token = Authorization.generateToken(
+      UserController.getUserobj(rows[0])
+    );
     return res.status(200).json({
       status: 200,
       data: {
         token,
-        user: UserController.getUserobj(response)
+        user: UserController.getUserobj(rows[0])
       }
     });
   }
@@ -67,12 +79,12 @@ class UserController {
     return {
       id: data.id,
       email: data.email,
-      firstName: data.firstName,
-      lastName: data.lastName,
+      firstname: data.firstname,
+      lastname: data.lastname,
       type: data.type,
-      isAdmin: data.isAdmin,
-      created_at: data.createdAt,
-      modified_at: data.modifiedAt
+      is_admin: data.is_admin,
+      created_at: data.created_at,
+      modified_at: data.modified_at
     };
   }
 }
