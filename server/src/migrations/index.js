@@ -8,6 +8,7 @@ const connect = configAll[env];
 
 const { connectionString } = connect;
 
+console.log(connectionString);
 const pool = new Pool({
     connectionString,
 });

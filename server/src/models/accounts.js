@@ -5,12 +5,12 @@ import db from './index';
 import accountNumber from '../helpers/accountNumber';
 
 
-/**
+ /**
  * @exports
  * @class Account
  */
 class Account {
-    /**
+       /**
        * @param {*} data
        * @memberof Account
        * @returns { object } account object
@@ -39,7 +39,7 @@ class Account {
         return response;
     }
 
-    /**
+      /**
        * @param {*} id
        * @param {*} data
        * @returns { Object }
@@ -67,7 +67,7 @@ class Account {
         return response;
     }
 
-    /**
+       /**
        * @param {*} id
        * @returns {}
        * @memberof Account
