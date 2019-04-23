@@ -40,6 +40,32 @@ class AccountController {
         }
     }
 
+    static async getAllAccountDetails(req, res) {
+        try {
+            if (req.query.status) {
+                const { rows, rowCount } = await AccountModel.findByQuery(req);
+                return res.json({
+                    status: 200,
+                    data: rows,
+                    rowCount,
+                }).status(200);
+            }
+            const { rows, rowCount } = await AccountModel.findAll();
+
+            return res.json({
+                status: 200,
+                data: rows,
+                rowCount,
+            }).status(200);
+        } catch (error) {
+            console.log(error);
+            return res.json({
+                status: 500,
+                error,
+            }).status(500);
+        }
+    }
+
     static async delete(req, res) {
         try {
             const { rows } = await AccountModel.findByNumber(req.params.id);

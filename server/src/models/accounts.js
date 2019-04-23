@@ -39,6 +39,19 @@ class Account {
         return response;
     }
 
+    findAll() {
+        const text = 'SELECT * FROM accounts ORDER BY id ASC';
+        const response = db.query(text);
+        return response;
+    }
+
+    findByQuery(req) {
+        const text = 'SELECT * FROM accounts WHERE status=$1';
+        const response = db.query(text, [req.query.status]);
+        return response;
+    }
+
+
       /**
        * @param {*} id
        * @param {*} data
