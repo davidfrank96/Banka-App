@@ -84,7 +84,6 @@ class UserController {
       type: data.type,
       is_admin: data.is_admin,
       created_at: data.created_at,
-      modified_at: data.modified_at
     };
   }
 }

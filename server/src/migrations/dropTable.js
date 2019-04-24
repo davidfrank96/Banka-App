@@ -1,20 +1,19 @@
-/**
- * Function to check if value is empty
- * @param {string} value
- * @param {string} msg
- * @return {(error|bool)} returns error or true
- */
-function notEmpty(value, msg) {
-    if (value === '') {
-        throw new Error(msg);
-    }
+/* eslint-disable no-console */
+import pool from './index';
 
-    return true;
-}
-
-export default notEmpty;
+const queryText = 'DROP TABLE IF EXISTS users, accounts, transactions CASCADE';
 
 
+pool.query(queryText)
+    .then((res) => {
+        console.log(res);
+        pool.end();
+    }).catch((err) => {
+        console.log(err);
+        pool.end();
+    });
 
-
-const array = [5, 6, 7, 8, 9];
+pool.on('remove', () => {
+    console.log('Client removed');
+    process.exit(0);
+});

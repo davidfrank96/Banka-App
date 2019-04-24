@@ -1,8 +1,10 @@
-/* eslint-disable no-console */
-import pool from './index';
+import pool from "./index";
+import users from "../../data/users";
+import transactions from "../../data/transaction";
+import accounts from "../../data/accounts";
 
-pool.on('connect', () => {
-    console.log('Connected to the database');
+pool.on("connect", () => {
+  console.log("Connected to the database");
 });
 
 const queryText = `CREATE TABLE IF NOT EXISTS users(
@@ -13,14 +15,13 @@ const queryText = `CREATE TABLE IF NOT EXISTS users(
         type VARCHAR(128) NOT NULL,
         is_admin BOOLEAN DEFAULT false,
         password VARCHAR(124) NOT NULL,
-        created_at TIMESTAMP,
-        modified_at TIMESTAMP DEFAULT NULL
+        created_at TIMESTAMP
     );
 
     CREATE TABLE IF NOT EXISTS accounts(
         id SERIAL PRIMARY KEY,
         accountNumber BIGINT UNIQUE NOT NULL,
-        owner INTEGER REFERENCES users(id) NOT NULL,
+        owner INT NOT NULL,
         type VARCHAR(128) NOT NULL,
         status VARCHAR(128) NOT NULL,
         balance FLOAT(1) NOT NULL,
@@ -39,11 +40,25 @@ const queryText = `CREATE TABLE IF NOT EXISTS users(
     );
 `;
 
-pool.query(queryText)
-    .then((res) => {
-        console.log(res);
-        pool.end();
-    }).catch((err) => {
-        console.log(err);
-        pool.end();
-    });
+const seedTable = async (table, array) => {
+  await array.forEach(async member => {
+    const key = Object.keys(member);
+    const value = Object.values(member);
+    await pool.query(`insert into ${table} (${key}) values (${value})`);
+  });
+};
+
+const seedAllTables = async () => {
+  try {
+    await pool.query(queryText);
+    await seedTable("users", users);
+    await seedTable("accounts", accounts);
+    await seedTable("transactions", transactions);
+    console.log("Tables successfully seeded");
+  } catch (error) {
+    console.log(error);
+    console.log("Tables not seeded");
+  }
+};
+
+seedAllTables();

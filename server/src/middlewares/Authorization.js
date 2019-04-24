@@ -74,7 +74,6 @@ class Authorization {
     static async isStaff(req, res, next) {
         const { id } = req.user;
         const { rows } = await UserModel.findById(id);
-
         try {
             if (rows[0].type === 'Client') {
                 return res.status(403).json({

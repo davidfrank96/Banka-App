@@ -58,7 +58,7 @@ class TransactionController {
       if (rows[0].balance < amount) {
         return res
           .json({
-            status: 409,
+            status: 400,
             error: "Insufficient balance to complete transaction"
           })
           .status(409);
