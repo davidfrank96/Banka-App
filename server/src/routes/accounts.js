@@ -18,5 +18,6 @@ accountRoutes.post("/",  AccountValidation.createAccount, validation, AccountCon
 accountRoutes.patch("/:id", Authorization.isStaff, AccountValidation.updateAccount, validation, AccountController.update);
 accountRoutes.delete("/:id", Authorization.isStaff, AccountController.delete);
 accountRoutes.get("/", AccountController.getAllAccountDetails);
+accountRoutes.get("/:id", AccountController.getAccountDetails);
 
 export default accountRoutes;

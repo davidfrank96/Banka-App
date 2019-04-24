@@ -51,7 +51,11 @@ class Account {
         return response;
     }
 
-
+    findByNumber(number) {
+        const text = 'SELECT * FROM accounts WHERE accountnumber=$1';
+        const response = db.query(text, [number]);
+        return response;
+    }
       /**
        * @param {*} id
        * @param {*} data
