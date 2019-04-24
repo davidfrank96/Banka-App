@@ -66,6 +66,29 @@ class AccountController {
         }
     }
 
+    static async getAccountDetails(req, res) {
+        try {
+            const { rows } = await AccountModel.findByNumber(req.params.id);
+
+            if (!rows) {
+                return res.status(404).json({
+                    status: 404,
+                    error: 'Account not found',
+                });
+            }
+
+            return res.json({
+                status: 200,
+                data: rows[0],
+            }).status(200);
+        } catch (error) {
+            return res.json({
+                status: 500,
+                error,
+            }).status(500);
+        }
+    }
+
     static async delete(req, res) {
         try {
             const { rows } = await AccountModel.findByNumber(req.params.id);
