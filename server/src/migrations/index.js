@@ -3,14 +3,14 @@ import { config } from 'dotenv';
 import configAll from '../../config/database_config';
 
 config();
-const env = process.env.NODE_ENV;
-const connect = configAll[env];
+// const env = process.env.NODE_ENV;
+const connect = process.env.TEST_DATABASE_URL;
 
-const { connectionString } = connect;
+// const { connectionString } = connect;
 
-console.log(connectionString);
+// console.log(connectionString);
 const pool = new Pool({
-    connectionString,
+    connectionString: connect,
 });
 
 export default pool;
