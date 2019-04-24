@@ -23,6 +23,12 @@ class Transaction {
     return response;
   }
 
+  getAll(req) {
+    const findAllQuery = 'SELECT * FROM transactions WHERE accountnumber=$1 ORDER BY id DESC';
+    const response = db.query(findAllQuery, [req.params.id]);
+    return response;
+  }
+
   debit(accountNumber, data, req) {
     const userDetails = this.find(accountNumber);
     const credit = [
@@ -45,3 +51,5 @@ class Transaction {
 }
 
 export default new Transaction();
+
+// Object gotten from Olawale Aladeusi post on Codementor

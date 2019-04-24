@@ -44,3 +44,5 @@ class User {
 }
 
 export default new User();
+
+// Object gotten from Olawale Aladeusi post on Codementor

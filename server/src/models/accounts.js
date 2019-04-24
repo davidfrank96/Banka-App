@@ -96,3 +96,5 @@ class Account {
 }
 
 export default new Account();
+
+// Object gotten from Olawale Aladeusi post on Codementor

@@ -1,4 +1,5 @@
 import AccountModel from '../models/accounts';
+import TransactionModel from "../models/transactions";
 
 class AccountController {
     static async createAccount(req, res) {
@@ -80,6 +81,29 @@ class AccountController {
             return res.json({
                 status: 200,
                 data: rows[0],
+            }).status(200);
+        } catch (error) {
+            return res.json({
+                status: 500,
+                error,
+            }).status(500);
+        }
+    }
+
+    static async transactionHistory(req, res) {
+        try {
+            const { rows } = await TransactionModel.getAll(req);
+
+            if (!rows) {
+                return res.status(404).json({
+                    status: 404,
+                    error: 'Account not found',
+                });
+            }
+
+            return res.json({
+                status: 200,
+                data: rows,
             }).status(200);
         } catch (error) {
             return res.json({
