@@ -19,5 +19,6 @@ accountRoutes.patch("/:id", Authorization.isStaff, AccountValidation.updateAccou
 accountRoutes.delete("/:id", Authorization.isStaff, AccountController.delete);
 accountRoutes.get("/", AccountController.getAllAccountDetails);
 accountRoutes.get("/:id", AccountController.getAccountDetails);
+accountRoutes.get("/:id/transactions", AccountController.transactionHistory);
 
 export default accountRoutes;

@@ -20,3 +20,5 @@ export default {
         });
     },
 };
+
+// Object gotten from Olawale Aladeusi post on Codementor
