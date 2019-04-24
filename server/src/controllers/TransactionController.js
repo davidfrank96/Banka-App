@@ -91,6 +91,28 @@ class TransactionController {
         .status(500);
     }
   }
+  static async getTransaction(req, res) {
+    try {
+      const { rows } = await TransactionModel.findOne(req.params.id);
+
+      if (!rows[0]) {
+        return res.json({
+          status: 404,
+          error: 'Sorry, transaction does not exist',
+        })
+      }
+
+      return res.status(200).json({
+        status: 200,
+        data: rows[0],
+      });
+    } catch (error) {
+      return res.json({
+        status: 500,
+        error,
+      }).status(500);
+    }
+  }
 
   static getTransactionObj(data) {
     return {

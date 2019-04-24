@@ -24,8 +24,15 @@ class Transaction {
   }
 
   getAll(req) {
-    const findAllQuery = 'SELECT * FROM transactions WHERE accountnumber=$1 ORDER BY id DESC';
+    const findAllQuery =
+      "SELECT * FROM transactions WHERE accountnumber=$1 ORDER BY id DESC";
     const response = db.query(findAllQuery, [req.params.id]);
+    return response;
+  }
+
+  findOne(id) {
+    const text = "SELECT * FROM transactions WHERE id = $1";
+    const response = db.query(text, [id]);
     return response;
   }
 
