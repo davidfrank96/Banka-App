@@ -44,6 +44,9 @@ class ValidationHandler {
     req = { ...req, ...matchedData(req), };
 
     if (!errors.isEmpty()) {
+      console.log(errors, '=======>errors')
+
+      console.log(errors.array(), '=======>errors')
       const mappedErrors = errors.mapped();
 
       return res.status(400).json({

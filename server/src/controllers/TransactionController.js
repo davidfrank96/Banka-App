@@ -61,7 +61,7 @@ class TransactionController {
             status: 400,
             error: "Insufficient balance to complete transaction"
           })
-          .status(409);
+          .status(400);
       }
       const response = await AccountModel.updateAmount(
         req.params.id,

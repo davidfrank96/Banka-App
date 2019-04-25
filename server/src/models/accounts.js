@@ -1,16 +1,16 @@
+/* eslint-disable no-shadow */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable radix */
-import randomString from 'random-string';
 import db from './index';
 import accountNumber from '../helpers/accountNumber';
 
 
- /**
+/**
  * @exports
  * @class Account
  */
 class Account {
-       /**
+    /**
        * @param {*} data
        * @memberof Account
        * @returns { object } account object
@@ -51,12 +51,17 @@ class Account {
         return response;
     }
 
-    findByNumber(number) {
-        const text = 'SELECT * FROM accounts WHERE accountnumber=$1';
-        const response = db.query(text, [number]);
+    findByOwner(email) {
+        const text = `SELECT accounts.id, accounts.created_at, accounts.accountnumber::FLOAT,
+      accounts.type, accounts.status, accounts.balance::FLOAT FROM accounts
+      JOIN users ON accounts.owner=users.id
+      WHERE users.email=$1
+      ORDER BY accounts.id ASC`;
+        const response = db.query(text, [email]);
         return response;
     }
-      /**
+
+    /**
        * @param {*} id
        * @param {*} data
        * @returns { Object }
@@ -84,7 +89,7 @@ class Account {
         return response;
     }
 
-       /**
+    /**
        * @param {*} id
        * @returns {}
        * @memberof Account
