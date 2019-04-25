@@ -7,9 +7,8 @@ class UserController {
   static async signup(req, res) {
     try {
       const { rows } = await Users.create(req, req.body);
-      const token = Authorization.generateToken(
-        UserController.getUserobj(rows[0])
-      );
+      const { id, type } = rows[0];
+      const token = Authorization.generateToken({ id, type });
       return res.status(201).json({
         status: res.statusCode,
         message: "User registered successfully",
@@ -52,9 +51,8 @@ class UserController {
       });
     }
     
-    const token = Authorization.generateToken(
-      UserController.getUserobj(rows[0])
-    );
+    const { id, type } = rows[0];
+    const token = Authorization.generateToken({ id, type });
     return res.status(200).json({
       status: 200,
       data: {
