@@ -1,28 +1,27 @@
 /* eslint-disable no-undef */
-import bcrypt from "bcrypt";
-import Users from "../models/users";
-import Authorization from "../middlewares/Authorization";
+import bcrypt from 'bcrypt';
+import Users from '../models/users';
+import Authorization from '../middlewares/Authorization';
 
 class UserController {
   static async signup(req, res) {
     try {
       const { rows } = await Users.create(req, req.body);
-      const token = Authorization.generateToken(
-        UserController.getUserobj(rows[0])
-      );
+      const { id, type } = rows[0];
+      const token = Authorization.generateToken({ id, type });
       return res.status(201).json({
         status: res.statusCode,
-        message: "User registered successfully",
+        message: 'User registered successfully',
         data: {
           token,
           user: UserController.getUserobj(rows[0])
         }
       });
     } catch (error) {
-      if (error.routine === "_bt_check_unique") {
+      if (error.routine === '_bt_check_unique') {
         return res.status(400).json({
           status: res.statusCode,
-          error: "Email already taken"
+          error: 'Email already taken'
         });
       }
       return res.status(500).json({
@@ -38,7 +37,7 @@ class UserController {
     if (!rows[0]) {
       return res.status(401).json({
         status: 401,
-        error: "Invalid Credentials"
+        error: 'Invalid Credentials'
       });
     }
     const isPasswordValid = await UserController.verifyPassword(
@@ -48,13 +47,12 @@ class UserController {
     if (!isPasswordValid) {
       return res.status(401).json({
         status: 401,
-        error: "Invalid Credentials"
+        error: 'Invalid Credentials'
       });
     }
-    
-    const token = Authorization.generateToken(
-      UserController.getUserobj(rows[0])
-    );
+
+    const { id, type } = rows[0];
+    const token = Authorization.generateToken({ id, type });
     return res.status(200).json({
       status: 200,
       data: {

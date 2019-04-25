@@ -4,13 +4,13 @@ import configAll from '../../config/database_config';
 
 config();
 // const env = process.env.NODE_ENV;
-const connect = process.env.TEST_DATABASE_URL;
+const connect = process.env.DATABASE_URL;
 
 // const { connectionString } = connect;
 
 // console.log(connectionString);
 const pool = new Pool({
-    connectionString: connect,
+  connectionString: connect,
 });
 
 export default pool;

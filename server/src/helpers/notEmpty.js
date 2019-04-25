@@ -15,6 +15,4 @@ function notEmpty(value, msg) {
 export default notEmpty;
 
 
-
-
 const array = [5, 6, 7, 8, 9];

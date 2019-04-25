@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable radix */
-import AccountModel from "./accounts";
-import db from "./index";
+import AccountModel from './accounts';
+import db from './index';
 
 /**
  * @exports
@@ -9,7 +9,7 @@ import db from "./index";
  */
 class Transaction {
   find(id) {
-    const text = "SELECT * FROM accounts WHERE accountnumber = $1";
+    const text = 'SELECT * FROM accounts WHERE accountnumber = $1';
     const response = db.query(text, [id]);
     return response;
   }
@@ -24,14 +24,13 @@ class Transaction {
   }
 
   getAll(req) {
-    const findAllQuery =
-      "SELECT * FROM transactions WHERE accountnumber=$1 ORDER BY id DESC";
+    const findAllQuery = 'SELECT * FROM transactions WHERE accountnumber=$1 ORDER BY id DESC';
     const response = db.query(findAllQuery, [req.params.id]);
     return response;
   }
 
   findOne(id) {
-    const text = "SELECT * FROM transactions WHERE id = $1";
+    const text = 'SELECT * FROM transactions WHERE id = $1';
     const response = db.query(text, [id]);
     return response;
   }
@@ -39,7 +38,7 @@ class Transaction {
   debit(accountNumber, data, req) {
     const userDetails = this.find(accountNumber);
     const credit = [
-      "debit",
+      'debit',
       accountNumber,
       req.user.id,
       data.amount,
