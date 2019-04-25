@@ -21,7 +21,7 @@ apiRoutes.get('/v1', (req, res) => res.json({
 apiRoutes.use('/v1/auth', userRoutes);
 apiRoutes.use('/v1/accounts', accountRoutes);
 apiRoutes.use('/v1/transactions', transactionRoutes);
-apiRoutes.get('/v1/user/:id/accounts', Authorization.authenticate, AccountController.accounts);
+apiRoutes.get('/v1/user/:email/accounts', Authorization.authenticate, AccountController.accounts);
 
 
 export default apiRoutes;

@@ -49,7 +49,7 @@ class AccountController {
           .json({
             status: 200,
             data: rows,
-            rowCount
+            rowCount,
           })
           .status(200);
       }
@@ -59,7 +59,7 @@ class AccountController {
         .json({
           status: 200,
           data: rows,
-          rowCount
+          rowCount,
         })
         .status(200);
     } catch (error) {
@@ -127,24 +127,22 @@ class AccountController {
     }
   }
 
-  static async accounts(req, res) {
-    try {
-      const { id } = req.params;
-      const { rows } = await AccountModel.findByOwner(id);
+    static async accounts(req, res) {
+        try {
+            const { email } = req.params;
+            const { rows } = await AccountModel.findByOwner(email);
 
-      return res.json({
-        status: 200,
-        data: rows
-      });
-    } catch (error) {
-      return res
-        .json({
-          status: 500,
-          error
-        })
-        .status(500);
+            return res.json({
+                status: 200,
+                data: rows,
+            })
+        } catch (error) {
+            return res.json({
+                status: 500,
+                error,
+            }).status(500);
+        }
     }
-  }
 
   static getTransactionObj(data) {
     return {
