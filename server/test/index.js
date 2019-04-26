@@ -1,2 +1,2 @@
-import "./middlewares";
-import "./routes";
+import './middlewares';
+import './routes';

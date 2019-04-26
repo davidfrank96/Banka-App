@@ -1,31 +1,31 @@
-import hashedPassword from "../../src/helpers/hashPassword";
+import hashedPassword from '../../src/helpers/hashPassword';
 
 export default {
   signup: {
     validClientDetails: {
-      firstname: "Ashley",
-      lastname: "Jones",
-      email: "test@gmail.com",
-      password: hashedPassword("password", 10),
-      type: "Client",
+      first_name: 'Ashley',
+      last_name: 'Jones',
+      email: 'test@gmail.com',
+      password: hashedPassword('password', 10),
+      type: 'Client',
       isAdmin: false,
       createdAt: new Date(),
       modifiedAt: null
     },
     validStaffDetails: {
-      firstname: "James",
-      lastname: "Barnes",
-      email: "testi@gmail.com",
-      password: hashedPassword("password", 10),
-      type: "Staff",
+      first_name: 'James',
+      last_name: 'Barnes',
+      email: 'testi@gmail.com',
+      password: hashedPassword('password', 10),
+      type: 'Staff',
       isAdmin: true,
       createdAt: new Date(),
       modifiedAt: null
     },
     invalidUserDetails: {
-      firstname: "Ashley",
-      password: hashedPassword("password", 10),
-      type: "emoji",
+      first_name: 'Ashley',
+      password: hashedPassword('password', 10),
+      type: 'emoji',
       isAdmin: false,
       createdAt: new Date(),
       modifiedAt: null
@@ -33,21 +33,21 @@ export default {
   },
   login: {
     validLoginDetails: {
-      email: "example@gmail.com",
-      password: "password"
+      email: 'example@gmail.com',
+      password: 'password'
     },
     emptyLoginDetails: {
-      email: "example@gmail.com",
-      password: ""
+      email: 'example@gmail.com',
+      password: ''
     },
     invalidLoginDetails: {
-      email: "wrong@gmail.com",
-      password: "password"
+      email: 'wrong@gmail.com',
+      password: 'password'
     }
   },
   account: {
     validAccountDetails: {
-      type: "savings",
+      type: 'savings',
       balance: 12000
     },
     emptyAccountDetails: {
@@ -59,7 +59,7 @@ export default {
       amount: 10000
     },
     emptyTransaction: {
-      amount: ""
+      amount: ''
     },
     excessTransaction: {
       amount: 100000

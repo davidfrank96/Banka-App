@@ -5,7 +5,7 @@ import TransactionModel from '../models/transactions';
 class AccountController {
   /**
    * @static
-   * @description this calls a method from the AccountModel create
+   * @description this method queries the database with the create model to create a new User
    * @param {object} req - Request object
    * @param {object} res - Response object
    * @returns {object} Json object 
@@ -29,7 +29,8 @@ class AccountController {
 
   /**
    * @static
-   * @description
+   * @description this method queries the database with the findNumber model
+   *  to find a single account number using the params.id
    * @param {object} req - Request object
    * @param {object} res - Response object
    * @returns {object} Json
@@ -62,7 +63,7 @@ class AccountController {
    *
    * @static
    * @description this calls a method Account.findByQuery which carries
-   *  an agument request object that queries the db
+   *  an agument request object that queries the db to get all the  account details
    * @param {object} req - Request object
    * @param {object} res - Response object
    * @returns {object} Json
@@ -103,7 +104,7 @@ class AccountController {
   /**
    *
    * @static
-   * @description
+   * @description this method queries the database to get a single User by using the request.id
    * @param {object} req - Request object
    * @param {object} res - Response object
    * @returns {object} Json
@@ -139,7 +140,8 @@ class AccountController {
   /**
    *
    * @static
-   * @description
+   * @description this method queries the database  to get 
+   * the transaction history of an account
    * @param {object} req - Request object
    * @param {object} res - Response object
    * @returns {object} Json
@@ -175,7 +177,8 @@ class AccountController {
   /**
    *
    * @static
-   * @description
+   * @description this method quries the database to get a user by 
+   * his/her email address using the findByOwner model
    * @param {object} req - Request object
    * @param {object} res - Response object
    * @returns {object} Json
@@ -202,7 +205,7 @@ class AccountController {
 
   /**
    * @static
-   * @description
+   * @description this method carries the return data of an account 
    * @param {object} req - Request object
    * @param {object} res - Response object
    * @returns {object} Json
@@ -221,7 +224,8 @@ class AccountController {
 
   /**
  * @static
- * @description
+ * @description this method queries the database to delete a
+ *  particular user using the findNumber model to remove a user
  * @param {object} req - Request object
  * @param {object} res - Response object
  * @returns {object} Json

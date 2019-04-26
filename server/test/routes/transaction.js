@@ -55,7 +55,7 @@ describe('Transaction routes:', () => {
           expect(res.statusCode).to.equal(403);
           expect(res.body).to.include.keys('error');
           expect(res.body.error).to.equal(
-            "Forbidden access, Admin or Staff only"
+            'Forbidden access, Admin or Staff only'
           );
 
           done(err);
@@ -120,7 +120,7 @@ describe('Transaction routes:', () => {
         .send({ amount: 2000000 })
         .end((err, res) => {
           expect(res.statusCode).to.equal(200);
-        
+
 
           done(err);
         });
@@ -136,7 +136,7 @@ describe('Transaction routes:', () => {
           expect(res.statusCode).to.equal(403);
           expect(res.body).to.include.keys('error');
           expect(res.body.error).to.equal(
-            "Forbidden access, Admin or Staff only"
+            'Forbidden access, Admin or Staff only'
           );
 
           done(err);
