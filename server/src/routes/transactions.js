@@ -16,6 +16,7 @@ transactionRoute.use(Authorization.authenticate);
 
 transactionRoute.post("/:id/credit", Authorization.isStaff, TransactionValidation.transact, validation, TransactionController.credit);
 transactionRoute.post("/:id/debit", Authorization.isStaff, TransactionValidation.transact, validation, TransactionController.debit);
+transactionRoute.get("/:id", TransactionController.getTransaction);
 
 export default transactionRoute;
 

@@ -23,7 +23,7 @@
             <ul class="main-nav__list">
 
                 <li class="main-nav__list-item">
-                    <a href="staff_debit.html"><b>Debit</b></a>
+                    <a href="staff_debit.html"><b>Transactions</b></a>
                 </li>
                 <li class="main-nav__list-item">
                     <a href="staff_dashboard.html">Home</a>
@@ -44,7 +44,7 @@
             </div>
             <ul class="mobile-nav__list">
                 <li class="main-nav__list-item">
-                    <a href="staff_debit.html"><b>Debit</b></a>
+                    <a href="staff_debit.html"><b>Transactions</b></a>
                 </li>
                 <li class="main-nav__list-item">
                     <a href="staff_dashboard.html">Home</a>
@@ -62,12 +62,9 @@
         <section class="form_admin">
             <form action="#" method="post" class="page_form" id="registerForm">
                 <h3>
-                    Banka <span class="red">Debit User Account</span></h3>
+                    Banka <span class="red">Staff Transactions</span></h3>
 
-                <div class="form-account">
-                    <input type="text" name="name" class="form-field" placeholder="First Name" required>
-                    <input type="text" name="name" class="form-field" placeholder="Last Name" required>
-                </div>
+                
                 <div class="form-group">
                     <input type="number" name="Account number" class="form-field" placeholder=" User Account number"
                         required>
@@ -76,14 +73,15 @@
                  <div class="form-group">
                         <input type="text" name="Charges" class="form-field" placeholder="Purpose for Charge" required>
                     </div> 
+                
                 <div class="form-group">
                     <select type="text" name="Role" class="form-field" placeholder=" Choose a Role" required>
-                        <option type="text" name="Role" class="form-field" placeholder=" Choose a Role" value="">Select
-                            account type</option>
-                        <option type="text" name="Saving" class="form-field" placeholder=" Choose a Role" value="">Savings</option>
-                        <option type="text" name="current" class="form-field" placeholder=" Choose a Role" value="">Current</option>
-                        <option type="text" name="coperate" class="form-field" placeholder=" Choose a Role" value="">Coperate</option>
-
+                        <option type="text" name="Role" class="form-field" placeholder=" Choose a Role" value="">Transaction type
+                            </option>
+                        <option type="text" name="Saving" class="form-field" placeholder=" Choose a Role" value="">Credit</option>
+                        <option type="text" name="current" class="form-field" placeholder=" Choose a Role" value="">Debit</option>
+                        
+                
                     </select>
                 </div>
                 <div class="form-group">
@@ -91,12 +89,12 @@
                 </div>
 
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <p class="page_link"><input type="checkbox" name="checkbox" value="check" id="agree" required /> I
                         have read and agree to the Terms and Conditions
                         and Privacy Policy </p>
-                </div>
-                <button type="submit">Debit Account</button>
+                </div> -->
+                <button type="submit">Transact</button>
                 <p class="page_link">Back to Home? <a href="staff_dashboard.html">Click Here</a></p>
             </form>
         </section>

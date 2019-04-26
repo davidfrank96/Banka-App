@@ -27,4 +27,5 @@ export default {
       .isIn(['active', 'dormant'])
       .withMessage('Status type does not exist'),
   ],
-};    
+}; 
+   

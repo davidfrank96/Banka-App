@@ -1,20 +1,19 @@
 export default [
   {
-    id: 1,
     accountNumber: 1234567890,
-    owner: 1,
-    type: "savings",
-    status: "active",
-    balance: 12000,
-    createdOn: new Date()
+    cashier: 1,
+    type: "\'savings\'",
+    amount: 4000,
+    oldbalance: 12000,
+    newbalance: 16000,
   },
   {
-    id: 2,
     accountNumber: 2343457787,
-    owner: 2,
-    type: "current",
-    status: "dormant",
-    balance: 12000,
-    createdOn: new Date()
+    cashier: 2,
+    type: "\'current\'",
+    amount: 4000,
+    oldbalance: 12000,
+    newbalance: 16000,
   }
 ];
+

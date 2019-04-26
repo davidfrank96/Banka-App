@@ -36,7 +36,7 @@ describe('Auth routes:', () => {
                     expect(res.statusCode).to.equal(400);
                     expect(res.body).to.be.a('object');
                     expect(res.body).to.include.keys('errors');
-                    expect(res.body.errors).to.include.keys('lastName');
+                    expect(res.body.errors).to.include.keys('lastname');
                     expect(res.body.errors).to.include.keys('email');
 
                     done(err);
@@ -69,7 +69,7 @@ describe('Auth routes:', () => {
                 .set('Accept', 'application/json')
                 .send({ ...validLoginDetails })
                 .end((err, res) => {
-                    console.log(res.body.data.token);
+                   // console.log(res.body.data.token);
                     expect(res.statusCode).to.equal(200);
                     expect(res.body).to.be.a('object');
                     expect(res.body).to.include.keys('data');

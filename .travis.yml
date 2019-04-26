@@ -1,10 +1,13 @@
 language: node_js
 node_js:
-  - "stable"
+  - "8.10.0"
 
 cache:
   directories:
     - "node_modules"
+
+addons:
+  postgresql: "9.6"
 
 env:
   global:
@@ -14,6 +17,10 @@ env:
 
 install:
   - npm install
+
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - npm run migration
 
 script:
   - npm test

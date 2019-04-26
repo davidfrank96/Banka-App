@@ -1,56 +1,181 @@
-import AccountModel from '../models/accounts';
+import AccountModel from "../models/accounts";
+import TransactionModel from "../models/transactions";
 
 class AccountController {
-    static async createAccount(req, res) {
-        const accountData = await AccountModel.create(req.body, req);
-        const data = {
-          accountNumber: accountData.accountNumber,
-          firstName: accountData.firstName,
-            lastName: accountData.lastName,
-          email: req.user.email,
-          type: accountData.type,
-          openingBalance: accountData.balance
-        };
-        return res.status(201).json({
-            status: 201,
-           data,
-        });
+  static async createAccount(req, res) {
+    try {
+      const response = await AccountModel.create(req.body, req);
+      return res.status(201).json({
+        status: res.statusCode,
+        message: "Account created successfully",
+        data: response.rows[0]
+      });
+    } catch (error) {
+      return res.status(500).json({
+        status: res.statusCode,
+        error
+      });
     }
+  }
 
-    static async update(req, res) {
-        const account = AccountModel.findByNumber(req.params.id);
-        if (!account) {
-            return res.status(404).json({
-                status: 404,
-                message: 'Account not found',
-            });
-        }
+  static async update(req, res) {
+    try {
+      const { rows } = await AccountModel.findByNumber(req.params.id);
+      if (!rows[0]) {
+        return res.status(404).json({
+          status: res.statusCode,
+          error: "Account Not Found"
+        });
+      }
+      const response = await AccountModel.update(req.params.id, req.body);
+      return res.status(200).json({
+        status: 200,
+        message: "Account details updated successfully",
+        data: response.rows[0]
+      });
+    } catch (error) {
+      return res.status(500).json({
+        status: 500,
+        error
+      });
+    }
+  }
 
-        const updatedAccount = AccountModel.update(req.params.id, req.body);
-        return res.status(200).json({
+  static async getAllAccountDetails(req, res) {
+    try {
+      if (req.query.status) {
+        const { rows, rowCount } = await AccountModel.findByQuery(req);
+        return res
+          .json({
             status: 200,
-            data: {
-                accountNumber: req.params.id,
-                status: updatedAccount.status,
-            },
-        });
-    }
+            data: rows,
+            rowCount,
+          })
+          .status(200);
+      }
+      const { rows, rowCount } = await AccountModel.findAll();
 
-    static async delete(req, res) {
-        const account = AccountModel.findByNumber(req.params.id);
-        if (!account) {
-            return res.status(404).json({
-                status: 404,
-                message: 'Account not found',
-            });
+      return res
+        .json({
+          status: 200,
+          data: rows,
+          rowCount,
+        })
+        .status(200);
+    } catch (error) {
+      console.log(error);
+      return res
+        .json({
+          status: 500,
+          error
+        })
+        .status(500);
+    }
+  }
+
+  static async getAccountDetails(req, res) {
+    try {
+      const { rows } = await AccountModel.findByNumber(req.params.id);
+
+      if (!rows) {
+        return res.status(404).json({
+          status: 404,
+          error: "Account not found"
+        });
+      }
+
+      return res
+        .json({
+          status: 200,
+          data: rows[0]
+        })
+        .status(200);
+    } catch (error) {
+      return res
+        .json({
+          status: 500,
+          error
+        })
+        .status(500);
+    }
+  }
+
+  static async transactionHistory(req, res) {
+    try {
+      const { rows } = await TransactionModel.getAll(req);
+
+      if (!rows) {
+        return res.status(404).json({
+          status: 404,
+          error: "Account not found"
+        });
+      }
+
+      return res
+        .json({
+          status: 200,
+          data: rows
+        })
+        .status(200);
+    } catch (error) {
+      return res
+        .json({
+          status: 500,
+          error
+        })
+        .status(500);
+    }
+  }
+
+    static async accounts(req, res) {
+        try {
+            const { email } = req.params;
+            const { rows } = await AccountModel.findByOwner(email);
+
+            return res.json({
+                status: 200,
+                data: rows,
+            })
+        } catch (error) {
+            return res.json({
+                status: 500,
+                error,
+            }).status(500);
         }
-
-        await AccountModel.delete(req.params.id);
-        return res.status(200).json({
-            status: 200,
-            message: 'Account successfully deleted',
-        });
     }
-}    
+
+  static getTransactionObj(data) {
+    return {
+      transactionId: data.id,
+      accountNumber: data.accountnumber,
+      amount: data.amount,
+      cashier: data.cashier,
+      transactionType: data.type,
+      accountBalance: data.newbalance
+    };
+  }
+
+  static async delete(req, res) {
+    try {
+      const { rows } = await AccountModel.findByNumber(req.params.id);
+      if (!rows[0]) {
+        return res.status(404).json({
+          status: res.statusCode,
+          error: "Account Not Found"
+        });
+      }
+      await AccountModel.delete(req.params.id);
+      return res.status(200).json({
+        status: 200,
+        message: "Account successfully deleted"
+      });
+    } catch (error) {
+      return res.status(500).json({
+        status: res.statusCode,
+        error
+      });
+    }
+  }
+}
 
 export default AccountController;
