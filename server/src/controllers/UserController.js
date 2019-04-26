@@ -77,8 +77,8 @@ class UserController {
     return {
       id: data.id,
       email: data.email,
-      firstname: data.firstname,
-      lastname: data.lastname,
+      first_name: data.first_name,
+      last_name: data.last_name,
       type: data.type,
       is_admin: data.is_admin,
       created_at: data.created_at,

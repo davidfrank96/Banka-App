@@ -5,10 +5,10 @@ import TransactionModel from '../models/transactions';
 class AccountController {
   /**
    * @static
-   * @description
+   * @description this calls a method from the AccountModel create
    * @param {object} req - Request object
    * @param {object} res - Response object
-   * @returns {object} Json
+   * @returns {object} Json object 
    * @memberof Controller
    */
   static async createAccount(req, res) {
@@ -61,7 +61,8 @@ class AccountController {
   /**
    *
    * @static
-   * @description
+   * @description this calls a method Account.findByQuery which carries
+   *  an agument request object that queries the db
    * @param {object} req - Request object
    * @param {object} res - Response object
    * @returns {object} Json

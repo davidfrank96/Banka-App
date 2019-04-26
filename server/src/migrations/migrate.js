@@ -9,8 +9,8 @@ pool.on('connect', () => {
 
 const queryText = `CREATE TABLE IF NOT EXISTS users(
         id SERIAL PRIMARY KEY,
-        firstname VARCHAR(128) NOT NULL,
-        lastname VARCHAR(128) NOT NULL,
+        first_name VARCHAR(128) NOT NULL,
+        last_name VARCHAR(128) NOT NULL,
         email VARCHAR(128) UNIQUE NOT NULL,
         type VARCHAR(128) NOT NULL,
         is_admin BOOLEAN DEFAULT false,

@@ -1,5 +1,4 @@
-/* eslint-disable class-methods-use-this */
-/* eslint-disable radix */
+
 import AccountModel from './accounts';
 import db from './index';
 

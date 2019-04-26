@@ -1,4 +1,4 @@
-/* eslint-disable consistent-return */
+
 import jwt from 'jsonwebtoken';
 import UserModel from '../models/users';
 
@@ -21,7 +21,7 @@ class Authorization {
        * @memberof Authorization
        * @param {object} user
        * @returns {string} token
-       * expires in 24 hours
+       * expires in 24000000000000000 hours
        */
   static generateToken({ ...user }) {
     const token = jwt.sign({ user },

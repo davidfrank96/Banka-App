@@ -55,7 +55,7 @@ class ValidationHandler {
         errors: results,
       });
     }
-//copied from stackoverflow but modified
+//code gotten from stackoverflow but modified
 
     return next();
   }

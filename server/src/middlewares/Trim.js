@@ -27,3 +27,5 @@ class Trim {
 }
 
 export default Trim;
+
+//code gotten from stackoverflow
