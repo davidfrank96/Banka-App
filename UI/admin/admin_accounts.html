@@ -12,8 +12,22 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="../css/main.css">
 </head>
-
 <body>
+
+    <dialog>
+        <div class = close>x</div>
+        <div><h3>Transactions</h3>
+            <p>transactionId : 7,<br>
+            “createdOn” : 6th April 19 ,<br>
+            “type” : credit  <br>
+            “accountNumber” : 858599487586,<br>
+            “amount” : 1500 ,<br>
+            “oldBalance” : 3000 ,<br>
+            “newBalance” : 4500</p> <br>
+        </div>
+       
+    </dialog>
+
     <header class="account">
         <div class="overlay hide"></div>
 
@@ -85,7 +99,7 @@
             <input type="checkbox" class="input" />
             <div class="switch-btn"></div>
         </label></td>
-        <td><a href="admin_details.html"><button type="button" class="details">Details</button></a></td>
+        <td><button type="button" id="myBtn" class="details">Details</button></td>
         <td><button type="button" class="delete">Delete</button></td>
     </tr>
     <tr>
@@ -96,7 +110,7 @@
             <input type="checkbox" class="input" />
             <div class="switch-btn"></div>
         </label></td>
-        <td><a href="admin_details.html"><button type="button" class="details">Details</button></a></td>
+        <td><button type="button" id="frank" class="details">Details</button></td>
         <td><button type="button" class="delete">Delete</button></td>
     </tr>
     <tr>
@@ -107,7 +121,7 @@
             <input type="checkbox" class="input" />
             <div class="switch-btn"></div>
         </label></td>
-        <td><a href="admin_details.html"><button type="button" class="details">Details</button></a></td>
+        <td><button type="button" id="frank1" class="details">Details</button></td>
         <td><button type="button" class="delete">Delete</button></td>
     </tr>
     <tr>
@@ -118,7 +132,7 @@
             <input type="checkbox" class="input" />
             <div class="switch-btn"></div>
         </label></td>
-        <td><a href="admin_details.html"><button type="button" class="details">Details</button></a></td>
+        <td><button type="button" id="frank2" class="details">Details</button></td>
         <td><button type="button" class="delete">Delete</button></td>
     </tr>
     </table>
@@ -131,7 +145,11 @@
     </footer>
 
     <script src="../js/app.js"></script>
+    <script src="../js/modals.js"></script>
+    
 
 </body>
 
 </html>
+
+
