@@ -36,8 +36,9 @@ describe('Auth routes:', () => {
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.a('object');
           expect(res.body).to.include.keys('errors');
-          expect(res.body.errors).to.include.keys('last_name');
-          expect(res.body.errors).to.include.keys('email');
+          expect(res.body.errors[0]).to.include('last_name is required');
+          expect(res.body.errors[1]).to.include('Email is required');
+          
 
           done(err);
         });
@@ -90,8 +91,9 @@ describe('Auth routes:', () => {
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.a('object');
           expect(res.body).to.include.keys('errors');
-          expect(res.body.errors).to.include.keys('password');
-          expect(res.body.errors.password.msg).to.equal('Password must be minimum of 6 characters');
+          expect(res.body.errors[0]).to.equal(
+            "Password must be minimum of 6 characters"
+          );
 
           done(err);
         });

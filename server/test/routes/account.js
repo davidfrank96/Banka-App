@@ -38,8 +38,7 @@ describe('Account routes:', () => {
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.be.a('object');
           expect(res.body).to.include.keys('errors');
-          expect(res.body.errors).to.include.keys('type');
-          expect(res.body.errors.type.msg).to.equal('Type must be specified');
+          expect(res.body.errors[0]).to.equal('Type must be specified');
 
           done(err);
         });
@@ -86,8 +85,7 @@ describe('Account routes:', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.include.keys('errors');
-          expect(res.body.errors).to.include.keys('status');
-          expect(res.body.errors.status.msg).to.equal(
+          expect(res.body.errors[0]).to.equal(
             'Status field cannot be left blank'
           );
 

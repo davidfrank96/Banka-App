@@ -38,8 +38,7 @@ describe('Transaction routes:', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.include.keys('errors');
-          expect(res.body.errors).to.include.keys('amount');
-          expect(res.body.errors.amount.msg).to.equal('Amount field cannot be left blank');
+          expect(res.body.errors[0]).to.equal('Amount field cannot be left blank');
 
           done(err);
         });
@@ -105,8 +104,7 @@ describe('Transaction routes:', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(400);
           expect(res.body).to.include.keys('errors');
-          expect(res.body.errors).to.include.keys('amount');
-          expect(res.body.errors.amount.msg).to.equal('Amount field cannot be left blank');
+          expect(res.body.errors[0]).to.equal('Amount field cannot be left blank');
 
           done(err);
         });
