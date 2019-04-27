@@ -112,6 +112,32 @@ transition: all .4s;
   cursor: pointer;
   height: 65%; 
 }
+.yes{
+  padding: 0.8rem;
+ cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #3ba09d;
+  color: #fff;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 25%; 
+}
+
+.Cancel{
+  padding: 0.8rem;
+ cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #d82912;
+  color: #fff;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 25%; 
+  margin-left: 30px;
+}
 
 /*Toggle button*/
 .input {

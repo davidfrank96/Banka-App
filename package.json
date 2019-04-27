@@ -53,7 +53,8 @@
     "pg": "^7.10.0",
     "random-string": "^0.2.0",
     "sinon": "^7.3.0",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "swagger-ui-express": "^4.0.2"
   },
   "bugs": {
     "url": "https://github.com/davidfrank96/Banka-App/issues"
