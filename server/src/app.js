@@ -1,18 +1,20 @@
 /* eslint-disable no-console */
-import express from 'express';
-import logger from 'morgan';
-import { config } from 'dotenv';
-import bodyParser from 'body-parser';
-import 'babel-polyfill';
-import apiRoutes from './routes';
-import ErrorHandler from './middlewares/ErrorHandler';
+import express from "express";
+import logger from "morgan";
+import { config } from "dotenv";
+import bodyParser from "body-parser";
+import "babel-polyfill";
+import apiRoutes from "./routes";
+import ErrorHandler from "./middlewares/ErrorHandler";
+import swaggerUi from "swagger-ui-express";
+import swaggerdoc from "../../swagger";
 
 config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -20,11 +22,17 @@ app.use(
   })
 );
 
-app.use('/api', apiRoutes);
-app.use('*', (req, res) => res.status(404).json({
-  status: 404,
-  error: 'Page Not Found'
-}));
+app.use("/api", apiRoutes);
+app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerdoc));
+app.use("*", (req, res) =>
+  res.status(404).json({
+    status: 404,
+    error: "Page Not Found"
+  })
+);
+
+
+
 
 app.use(ErrorHandler.sendError);
 

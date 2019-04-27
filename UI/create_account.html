@@ -11,46 +11,72 @@
 </head>
 
 <body>
+    <header class="login">
+        <div class="overlay hide"></div>
+    
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="red">BANKA</span> <span class="coin"></span>
+                </a>
+            </div>
+            <ul class="main-nav__list">
+    
+                <li class="main-nav__list-item">
+                    <a href="#">Create Acc.</a>
+                </li>
+                <li class="main-nav__list-item">
+                    <a href="user_profile.html">Home</a>
+                </li>
+            </ul>
+            <div class="burger burger-slip mobile-menu">
+                <div class="burger-lines"></div>
+            </div>
+        </nav>
+        <nav class="mobile-nav hide">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="red">BANKA</span> <span class="coin"></span>
+                </a>
+            </div>
+            <ul class="mobile-nav__list">
+                <li class="main-nav__list-item">
+                    <a href="#">Create Acc.</a>
+                </li>
+                <li class="main-nav__list-item">
+                    <a href="user_profile.html">Home</a>
+                </li>
+            </ul>
+        </nav>
+    
+    </header>
+
         <section class="form_page">
             <form action="#" method="post" class="page_form" id="registerForm">
                 <h3>
                  <b>Banka</b> <span class="red">Create An Account with Us</span></h3>
-                <div class="form-account">
-                    <input type="text" name="name" class="form-field" placeholder="First Name" required >
-                    <input type="text" name="name" class="form-field" placeholder="Last Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" class="form-field" placeholder="Your Email" required>
-                </div>
+                
                 <div class="form-account">
                     <select type="account" name="account" class="form-field" placeholder="Account Type" required>
                         <option type="text" name="Role" class="form-field" placeholder=" Choose a Role" value="">Select an Account Type</option>
                         <option type="text" name="Role" class="form-field" placeholder=" Choose a Role" value="">Savings</option>
                         <option type="text" name="Role" class="form-field" placeholder=" Choose a Role" value="">Current</option>
-                        <option type="text" name="Role" class="form-field" placeholder=" Choose a Role" value="">Coperate</option>
                         </select>
 
-                        <input type="number" name="Opening Balance" class="form-field" placeholder="Opening Balance" required>
-                </div>
-                
-                <div class="form-group">
-                    
-                    <input type="date" name="Role" class="form-field" placeholder=" Date of birth" required>
                        
                 </div>
-                <div class="form-account">
-                    <input type="password" name="password" class="form-field" placeholder="Your Password" required>
-                    <input type="password" name="confirm_password" class="form-field" placeholder="Confirm Password" required>
-                </div>
+                
+               
+               
                 <div class="form-group">
-                    <input type="adress" name="address" class="form-field" placeholder="Your Address" required>
+                    <input type="number" name="Opening Balance" class="form-field" placeholder="Opening Balance" required>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <p class="page_link"><input type="checkbox" name="checkbox" value="check" id="agree" required /> I
                         have read and agree to the Terms and Conditions
                         and Privacy Policy </p>
-                </div>
+                </div> -->
                 <button type="submit">Create Account</button>
                 <p class="page_link">Already Have an Account? <a href="user_profile.html">Home</a></p>
             </form>
