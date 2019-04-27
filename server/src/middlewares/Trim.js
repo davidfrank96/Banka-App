@@ -3,7 +3,7 @@
  * @class Trim
  */
 class Trim {
-    /**
+  /**
      * Trims rq.body values
      * @static
      * @param {*} req
@@ -11,20 +11,21 @@ class Trim {
      * @param {*} next
      * @memberof Trim
      */
-    static trim(req, res, next) {
-        const keysArr = Object.keys(req.body);
+  static trim(req, res, next) {
+    const keysArr = Object.keys(req.body);
 
 
-        req.body = keysArr.reduce((obj, key) => {
-            obj[key] = typeof req.body[key] === 'string' ?
-                req.body[key].replace(/ +/g, ' ').trim() : req.body[key];
+    req.body = keysArr.reduce((obj, key) => {
+      obj[key] = typeof req.body[key] === 'string'
+        ? req.body[key].replace(/ +/g, ' ').trim() : req.body[key];
 
-            return obj;
-        }, {});
+      return obj;
+    }, {});
 
-        next();
-    }
+    next();
+  }
 }
 
 export default Trim;
 
+//code gotten from stackoverflow

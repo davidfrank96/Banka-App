@@ -1,3 +1,3 @@
-import "./auth";
-import "./account";
-import "./transaction";
+import './auth';
+import './account';
+import './transaction';

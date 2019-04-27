@@ -1,16 +1,16 @@
-import pool from "./index";
-import users from "../../data/users";
-import transactions from "../../data/transaction";
-import accounts from "../../data/accounts";
+import pool from './index';
+import users from '../../data/users';
+import transactions from '../../data/transaction';
+import accounts from '../../data/accounts';
 
-pool.on("connect", () => {
-  console.log("Connected to the database");
+pool.on('connect', () => {
+  console.log('Connected to the database');
 });
 
 const queryText = `CREATE TABLE IF NOT EXISTS users(
         id SERIAL PRIMARY KEY,
-        firstname VARCHAR(128) NOT NULL,
-        lastname VARCHAR(128) NOT NULL,
+        first_name VARCHAR(128) NOT NULL,
+        last_name VARCHAR(128) NOT NULL,
         email VARCHAR(128) UNIQUE NOT NULL,
         type VARCHAR(128) NOT NULL,
         is_admin BOOLEAN DEFAULT false,
@@ -41,7 +41,7 @@ const queryText = `CREATE TABLE IF NOT EXISTS users(
 `;
 
 const seedTable = async (table, array) => {
-  await array.forEach(async member => {
+  await array.forEach(async (member) => {
     const key = Object.keys(member);
     const value = Object.values(member);
     await pool.query(`insert into ${table} (${key}) values (${value})`);
@@ -51,14 +51,16 @@ const seedTable = async (table, array) => {
 const seedAllTables = async () => {
   try {
     await pool.query(queryText);
-    await seedTable("users", users);
-    await seedTable("accounts", accounts);
-    await seedTable("transactions", transactions);
-    console.log("Tables successfully seeded");
+    await seedTable('users', users);
+    await seedTable('accounts', accounts);
+    await seedTable('transactions', transactions);
+    console.log('Tables successfully seeded');
   } catch (error) {
     console.log(error);
-    console.log("Tables not seeded");
+    console.log('Tables not seeded');
   }
 };
 
 seedAllTables();
+
+// jude olasohus
