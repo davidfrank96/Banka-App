@@ -16,6 +16,7 @@ const btn3 = document.getElementById("frank2");
 
 //get delete buttons
 const delBtn = document.getElementById("delBtn");
+const delBtn1 = document.getElementById("delBtn1");
 
 
 const span = document.getElementsByClassName("close")[0];
@@ -48,5 +49,9 @@ close[1].onclick = function () {
 
 
 delBtn.onclick = function () {
+  delet.showModal();
+};
+
+delBtn1.onclick = function() {
   delet.showModal();
 };
