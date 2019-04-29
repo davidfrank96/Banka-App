@@ -7,7 +7,7 @@ import "babel-polyfill";
 import apiRoutes from "./routes";
 import ErrorHandler from "./middlewares/ErrorHandler";
 import swaggerUi from "swagger-ui-express";
-import swaggerdoc from "../../swagger";
+import swaggerdoc from "../../swagger.json";
 
 config();
 
