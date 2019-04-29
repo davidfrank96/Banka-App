@@ -4,10 +4,10 @@
   "description": "Banka is a light-weight core banking application that powers banking operations like account",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node ./server/dist/src/app.js",
+    "start": "cross-env NODE_ENV=production node ./dist/src/app.js",
     "dev": "cross-env NODE_ENV=development nodemon --exec babel-node -- ./server/src/app.js",
-    "build": "npm run clean && babel ./server -d ./server/dist",
-    "clean": "rm -rf server/dist",
+    "build": "npm run clean && babel ./server -d ./dist --copy-files",
+    "clean": "rm -rf dist",
     "testdev": " cross-env NODE_ENV=test npm run drop:migration & npm run drop:migration && npm run migration && nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require babel-register server/test/index.js --exit",
     "test": "cross-env NODE_ENV=test npm run drop:create && nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require babel-register server/test/index.js --exit",
     "coveralls-coverage": "coveralls < lcov.info",
