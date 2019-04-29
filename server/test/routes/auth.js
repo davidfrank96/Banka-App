@@ -44,19 +44,16 @@ describe('Auth routes:', () => {
         });
     });
 
-    it('should add a new staff user', (done) => {
+    it('should return unathorized user', (done) => {
       request(app)
-        .post('/api/v1/auth/signup')
-        .set('Accept', 'application/json')
+        .post("/api/v1/admin")
+        .set("Accept", "application/json")
         .send({ ...validStaffDetails })
         .end((err, res) => {
-          // console.log(res.body.data.token);
-          expect(res.statusCode).to.equal(201);
-          expect(res.body).to.be.a('object');
-          expect(res.body).to.include.keys('data');
-          expect(res.body.data).to.include.keys('token');
-          expect(res.body.data).to.include.keys('user');
-          expect(res.body.data.user.type).to.equal('Staff');
+          console.log(res.body);
+          expect(res.statusCode).to.equal(401);
+          expect(res.body).to.be.a("object");
+
 
           done(err);
         });
@@ -70,7 +67,7 @@ describe('Auth routes:', () => {
         .set('Accept', 'application/json')
         .send({ ...validLoginDetails })
         .end((err, res) => {
-          // console.log(res.body.data.token);
+          //console.log(res.body.data.token);
           expect(res.statusCode).to.equal(200);
           expect(res.body).to.be.a('object');
           expect(res.body).to.include.keys('data');
@@ -107,7 +104,9 @@ describe('Auth routes:', () => {
         .end((err, res) => {
           expect(res.statusCode).to.equal(401);
           expect(res.body).to.include.keys('error');
-          expect(res.body.error).to.equal('Invalid Credentials');
+          expect(res.body.error).to.equal(
+            "Invalid credentials, inputed details does not match our records"
+          );
 
           done(err);
         });

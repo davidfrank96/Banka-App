@@ -82,6 +82,65 @@
         }
       }
     },
+    "/admin": {
+      "post": {
+        "tags": [
+          "Staff"
+        ],
+        "summary": "Admin create Staff",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/users"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/responce"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/auth/login": {
       "post": {
         "tags": [
@@ -322,7 +381,7 @@
                   "type": {
                     "type": "string"
                   },
-                  "openingBalance": {
+                  "balance": {
                     "type": "number"
                   }
                 }
@@ -354,7 +413,7 @@
         }
       }
     },
-    "/account/{Accountnumber}": {
+    "/accounts/{accountnumber}": {
       "patch": {
         "tags": [
           "Accounts"

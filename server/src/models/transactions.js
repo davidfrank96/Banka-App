@@ -1,6 +1,6 @@
 
-import AccountModel from './accounts';
-import db from './index';
+import AccountModel from "./accounts";
+import db from "./index";
 
 /**
  * @exports
@@ -8,7 +8,7 @@ import db from './index';
  */
 class Transaction {
   find(id) {
-    const text = 'SELECT * FROM accounts WHERE accountnumber = $1';
+    const text = "SELECT * FROM accounts WHERE accountnumber = $1";
     const response = db.query(text, [id]);
     return response;
   }
@@ -16,21 +16,11 @@ class Transaction {
   credit(data) {
     const text = `INSERT INTO
         transactions(type, accountNumber, cashier, amount, oldBalance, newBalance, created_at)
-        VALUES ($1, $2, $3, $4, $5, $6, $7) returning *`;
+        VALUES ($1, $2, $3, $4, $5, $6, $7) returning
+        id, accountnumber::FLOAT, type, cashier, amount::FLOAT, oldbalance::FLOAT, newbalance::FLOAT, created_at
+    `;
 
     const response = db.query(text, data);
-    return response;
-  }
-
-  getAll(req) {
-    const findAllQuery = 'SELECT * FROM transactions WHERE accountnumber=$1 ORDER BY id DESC';
-    const response = db.query(findAllQuery, [req.params.id]);
-    return response;
-  }
-
-  findOne(id) {
-    const text = 'SELECT * FROM transactions WHERE id = $1';
-    const response = db.query(text, [id]);
     return response;
   }
 
@@ -48,9 +38,24 @@ class Transaction {
 
     const text = `INSERT INTO
         transactions(type, accountNumber, cashier, amount, oldBalance, newBalance, created_at)
-        VALUES ($1, $2, $3, $4, $5, $6, $7) returning *`;
+        VALUES ($1, $2, $3, $4, $5, $6, $7) returning
+        id, accountnumber::FLOAT, type, cashier, amount::FLOAT, oldbalance::FLOAT, newbalance::FLOAT, created_at
+    `;
 
     const response = db.query(text, credit);
+    return response;
+  }
+
+  getAll(req) {
+    const findAllQuery =
+      "SELECT * FROM transactions WHERE accountnumber=$1 ORDER BY id DESC";
+    const response = db.query(findAllQuery, [req.params.id]);
+    return response;
+  }
+
+  findOne(id) {
+    const text = "SELECT * FROM transactions WHERE id = $1";
+    const response = db.query(text, [id]);
     return response;
   }
 }

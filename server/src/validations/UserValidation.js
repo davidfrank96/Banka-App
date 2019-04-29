@@ -25,13 +25,6 @@ export default {
       .isEmail()
       .withMessage('Email is required',
         'email must be a valid email address'),
-    check('type')
-      .trim()
-      .exists()
-      .withMessage('Type must be specified')
-      .custom(value => notEmpty(value, 'Type field cannot be left blank'))
-      .isIn(['Client', 'Staff'])
-      .withMessage('User type does not exist'),
     check('password')
       .trim()
       .exists()
