@@ -1,2 +1,2 @@
-import "./ErrorHandler";
-import "./Trim";
+import './ErrorHandler';
+import './Trim';

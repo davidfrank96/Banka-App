@@ -3,8 +3,8 @@ import hashedPassword from "../src/helpers/hashPassword";
 export default [
   {
     email: "\'example@gmail.com\'",
-    firstname: "\'John\'",
-    lastname: "\'Doe\'",
+    first_name: "\'John\'",
+    last_name: "\'Doe\'",
     password: `\'${hashedPassword("password", 10)}\'`,
     type: "\'Client\'",
     is_admin: '\'false\'',
@@ -13,8 +13,8 @@ export default [
   },
   {
     email: "\'emoji@gmail.com\'",
-    firstname: "\'John\'",
-    lastname: "\'Doe\'",
+    first_name: "\'John\'",
+    last_name: "\'Doe\'",
     password: `\'${hashedPassword("password", 10)}\'`,
     type: "\'Staff\'",
     is_admin: '\'false\'',

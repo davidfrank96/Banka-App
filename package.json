@@ -4,19 +4,21 @@
   "description": "Banka is a light-weight core banking application that powers banking operations like account",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node ./server/dist/src/app.js",
+    "start": "cross-env NODE_ENV=production node ./dist/src/app.js",
     "dev": "cross-env NODE_ENV=development nodemon --exec babel-node -- ./server/src/app.js",
-    "build": "npm run clean && babel ./server -d ./server/dist",
-    "clean": "rm -rf server/dist",
+    "build": "npm run clean && babel ./server -d ./dist --copy-files",
+    "clean": "rm -rf dist",
     "testdev": " cross-env NODE_ENV=test npm run drop:migration & npm run drop:migration && npm run migration && nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require babel-register server/test/index.js --exit",
-    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require babel-register server/test/index.js --exit",
+    "test": "cross-env NODE_ENV=test npm run drop:create && nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require babel-register server/test/index.js --exit",
     "coveralls-coverage": "coveralls < lcov.info",
     "coverage": "nyc npm test && npm run generate-lcov && npm run coveralls-coverage && npm run codeclimate-coverage",
     "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
     "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
     "heroku-postbuild": "npm run build",
     "migration": "babel-node server/src/migrations/migrate.js",
-    "drop:migration": "babel-node server/src/migrations/dropTable"
+    "drop:migration": "babel-node server/src/migrations/dropTable",
+    "drop:create": "npm run drop:migration && npm run migration && npm run seed",
+    "seed": "babel-node server/src/migrations/seeders"
   },
   "repository": {
     "type": "git",
@@ -53,7 +55,8 @@
     "pg": "^7.10.0",
     "random-string": "^0.2.0",
     "sinon": "^7.3.0",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "swagger-ui-express": "^4.0.2"
   },
   "bugs": {
     "url": "https://github.com/davidfrank96/Banka-App/issues"

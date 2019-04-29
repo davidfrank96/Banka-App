@@ -4,8 +4,10 @@ import logger from "morgan";
 import { config } from "dotenv";
 import bodyParser from "body-parser";
 import "babel-polyfill";
-import apiRoutes from "./routes";
 import ErrorHandler from "./middlewares/ErrorHandler";
+import swaggerUi from "swagger-ui-express";
+import swaggerdoc from "../../swagger.json";
+import apiRoutes from "./routes";
 
 config();
 
@@ -21,12 +23,16 @@ app.use(
 );
 
 app.use("/api", apiRoutes);
+app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerdoc));
 app.use("*", (req, res) =>
   res.status(404).json({
     status: 404,
     error: "Page Not Found"
   })
 );
+
+
+
 
 app.use(ErrorHandler.sendError);
 

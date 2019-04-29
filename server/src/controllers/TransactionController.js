@@ -1,11 +1,23 @@
 /* eslint-disable radix */
-import randomString from "random-string";
 import AccountModel from "../models/accounts";
 import TransactionModel from "../models/transactions";
+import validateParam from "../helpers/validateParam";
 
 class TransactionController {
+  /**
+   *
+   * @static
+   * @description this method quries  the database to find a single id and
+   *  adds  the account with the parseFloat method to convert it to an interger then credits
+   * the user account and then returnes the transaction values
+   * @param {object} req - Request object
+   * @param {object} res - Response object
+   * @returns {object}  returns the getTransactionObject as json
+   * @memberof Controller
+   */
   static async credit(req, res) {
     try {
+      validateParam(res, req.params.id);
       const { rows } = await AccountModel.findByNumber(req.params.id);
       if (!rows[0]) {
         return res.status(404).json({
@@ -44,8 +56,20 @@ class TransactionController {
     }
   }
 
+/**
+* @static
+* @description this method quries  the database to find a single id and
+*  adds  the account with the parseFloat method to convert it to an interger then updates
+the database with the update method to debits a user
+* the user account and then returnes the transaction values
+* @param {object} req - Request object
+* @param {object} res - Response object
+* @returns {object} returns the getTransactionObject as json
+* @memberof Controller
+*/
   static async debit(req, res) {
     try {
+      validateParam(res, req.params.id);
       const { rows } = await AccountModel.findByNumber(req.params.id);
       if (!rows[0]) {
         return res.status(404).json({
@@ -58,10 +82,10 @@ class TransactionController {
       if (rows[0].balance < amount) {
         return res
           .json({
-            status: 400,
+            status: 409,
             error: "Insufficient balance to complete transaction"
           })
-          .status(400);
+          .status(409);
       }
       const response = await AccountModel.updateAmount(
         req.params.id,
@@ -91,26 +115,39 @@ class TransactionController {
         .status(500);
     }
   }
+
+    /**
+     * @static
+     * @description this method queries the database to with findOne
+     *  method to get a single transaction
+     * @param {object} req - Request object
+     * @param {object} res - Response object
+     * @returns {object} Json
+     * @memberof Controller
+     */
   static async getTransaction(req, res) {
     try {
+      validateParam(res, req.params.id);
       const { rows } = await TransactionModel.findOne(req.params.id);
 
       if (!rows[0]) {
         return res.json({
           status: 404,
-          error: 'Sorry, transaction does not exist',
-        })
+          error: "Sorry, transaction does not exist"
+        });
       }
 
       return res.status(200).json({
         status: 200,
-        data: rows[0],
+        data: rows[0]
       });
     } catch (error) {
-      return res.json({
-        status: 500,
-        error,
-      }).status(500);
+      return res
+        .json({
+          status: 500,
+          error
+        })
+        .status(500);
     }
   }
 

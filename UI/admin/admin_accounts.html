@@ -14,7 +14,7 @@
 </head>
 <body>
 
-    <dialog>
+    <dialog class="det">
         <div class = close>x</div>
         <div><h3>Transactions</h3>
             <p>transactionId : 7,<br>
@@ -26,6 +26,15 @@
             “newBalance” : 4500</p> <br>
         </div>
        
+    </dialog>
+
+    <dialog class="del">
+        <div class= close>x</div>
+        <div>
+            <h3>Are you sure you want delete?</h3>
+        </div>
+       <button class="yes">Yes</button> <button class="Cancel">Cancel</button>
+
     </dialog>
 
     <header class="account">
@@ -100,7 +109,7 @@
             <div class="switch-btn"></div>
         </label></td>
         <td><button type="button" id="myBtn" class="details">Details</button></td>
-        <td><button type="button" class="delete">Delete</button></td>
+        <td><button type="button" id="delBtn"  class="delete">Delete</button></td>
     </tr>
     <tr>
         <td>2</td>
@@ -111,7 +120,7 @@
             <div class="switch-btn"></div>
         </label></td>
         <td><button type="button" id="frank" class="details">Details</button></td>
-        <td><button type="button" class="delete">Delete</button></td>
+        <td><button type="button" class="delete" id="delBtn1">Delete</button></td>
     </tr>
     <tr>
         <td>3</td>

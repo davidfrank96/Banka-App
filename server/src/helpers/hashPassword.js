@@ -1,5 +1,9 @@
 import bcrypt from "bcrypt";
+import { config } from "dotenv";
 
+config();
+
+const saltRounds = parseInt(process.env.SALT, 10);
 /**
  * @function hashPassword
  * @memberof UserController
@@ -7,9 +11,9 @@ import bcrypt from "bcrypt";
  * @param {integer} salt
  * @returns
  */
-function hashPassword(password, salt) {
-  const hash = bcrypt.hashSync(password, salt);
+const hashPassword = password => {
+  const hash = bcrypt.hashSync(password, saltRounds);
   return hash;
-}
+};
 
 export default hashPassword;
